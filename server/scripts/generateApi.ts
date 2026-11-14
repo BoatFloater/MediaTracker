@@ -2,7 +2,7 @@ import { generateApi } from 'swagger-typescript-api';
 import path from 'path';
 
 generateApi({
-  name: 'index.ts',
+  fileName: 'index.ts',
   output: path.resolve(process.cwd(), './../rest-api/'),
   input: path.resolve(process.cwd(), './openapi.json'),
   httpClientType: 'fetch',
@@ -12,5 +12,5 @@ generateApi({
   cleanOutput: false,
   enumNamesAsValues: false,
   moduleNameIndex: 1,
-  generateUnionEnums: true,
+  enumStyle: 'union',
 });

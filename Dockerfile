@@ -1,7 +1,7 @@
 # Build libvips
-FROM node:20-alpine3.20 AS node-libvips-dev
+FROM node:22-alpine3.22 AS node-libvips-dev
 
-ENV VIPS_VERSION=8.16.0
+ENV VIPS_VERSION=8.18.7
 ENV VIPS_ARCHIVE_FILENAME=vips-${VIPS_VERSION}.tar.xz
 ENV SHARP_FORCE_GLOBAL_LIBVIPS=true
 
@@ -26,7 +26,7 @@ ENV PKG_CONFIG_PATH=/libvips/lib/pkgconfig/
 RUN pkg-config --modversion vips-cpp | grep ${VIPS_VERSION} -q
 
 # Copy libvips and install it's dependencies
-FROM alpine:3.20 AS alpine-libvips
+FROM alpine:3.22 AS alpine-libvips
 
 COPY --from=node-libvips-dev /libvips /libvips
 RUN apk add --no-cache expat glib libwebp jpeg fftw orc libpng tiff lcms2
@@ -56,7 +56,7 @@ COPY ["server/package.json", "server/package-lock.json*", "./"]
 RUN apk add --no-cache python3 g++ make
 RUN npm ci --omit=dev
 
-FROM node:20-alpine3.20 AS node
+FROM node:22-alpine3.22 AS node
 FROM alpine-libvips
 
 RUN apk add --no-cache curl shadow
