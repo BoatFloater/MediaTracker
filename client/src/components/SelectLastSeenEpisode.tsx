@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
-import { Trans } from '@lingui/macro';
+import { Trans } from '@lingui/react/macro';
 
 import { setLastSeenEpisode, useDetails } from 'src/api/details';
 import { Modal } from 'src/components/Modal';

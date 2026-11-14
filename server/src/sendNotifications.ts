@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import chalk from 'chalk';
 import { addHours, parseISO, subHours } from 'date-fns';
-import { plural, t } from '@lingui/macro';
+import { plural, t } from '@lingui/core/macro';
 
 import { MediaItemBase } from 'src/entity/mediaItem';
 import { mediaItemRepository } from 'src/repository/mediaItem';

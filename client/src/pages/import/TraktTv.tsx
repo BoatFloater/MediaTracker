@@ -1,7 +1,8 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
-import { useMutation, useQuery } from 'react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import { useSpring, animated } from '@react-spring/web';
-import { Plural, t, Trans } from '@lingui/macro';
+import { t } from '@lingui/core/macro';
+import { Plural, Trans } from '@lingui/react/macro';
 
 import { mediaTrackerApi } from 'src/api/api';
 import {
@@ -15,10 +16,10 @@ import { queryClient } from 'src/App';
 const useTraktTvImport = () => {
   const [_state, setState] = useState<ImportState>();
 
-  const { data: deviceCode } = useQuery(
-    ['import', 'TraktTv', 'device-code'],
-    mediaTrackerApi.importTrakttv.deviceToken
-  );
+  const { data: deviceCode } = useQuery({
+    queryKey: ['import', 'TraktTv', 'device-code'],
+    queryFn: () => mediaTrackerApi.importTrakttv.deviceToken(),
+  });
 
   const [state, setStateResponse] =
     useState<ImportTrakttv.State.ResponseBody>();
@@ -35,16 +36,14 @@ const useTraktTvImport = () => {
     };
   }, []);
 
-  const startOverMutation = useMutation(
-    () => mediaTrackerApi.importTrakttv.startOver(),
-    {
-      onSettled: () => {
-        setState(undefined);
-        queryClient.removeQueries(['import', 'TraktTv']);
-        queryClient.invalidateQueries(['import', 'TraktTv']);
-      },
-    }
-  );
+  const startOverMutation = useMutation({
+    mutationFn: () => mediaTrackerApi.importTrakttv.startOver(),
+    onSettled: () => {
+      setState(undefined);
+      queryClient.removeQueries({ queryKey: ['import', 'TraktTv'] });
+      queryClient.invalidateQueries({ queryKey: ['import', 'TraktTv'] });
+    },
+  });
 
   return {
     deviceCode,
@@ -215,8 +214,7 @@ const TraktImportSummaryTableComponent: FunctionComponent<{
             episodes: state.importSummary?.ratings?.episodes,
           },
         },
-        ...state.exportSummary?.lists?.map((list) => ({
-          key: list.listId,
+        ...(state.exportSummary?.lists?.map((list) => ({          key: list.listId,
           title: t`List: ${list.listName}`,
           exported: {
             movies: list?.movies,
@@ -230,7 +228,7 @@ const TraktImportSummaryTableComponent: FunctionComponent<{
             seasons: importedListsByTraktId[list.listId]?.seasons,
             episodes: importedListsByTraktId[list.listId]?.episodes,
           },
-        })),
+        })) ?? []),
       ]}
     />
   );

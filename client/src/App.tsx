@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { QueryCache, QueryClient, QueryClientProvider } from 'react-query';
+import { keepPreviousData, QueryCache, QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { HashRouter as Router } from 'react-router-dom';
 import { FetchError } from 'src/api/api';
 import { DarkModeProvider } from 'src/hooks/darkMode';
@@ -7,17 +7,17 @@ import { DarkModeProvider } from 'src/hooks/darkMode';
 import { MyRouter } from './Router';
 import { i18n } from '@lingui/core';
 import { I18nProvider } from '@lingui/react';
-import { Trans } from '@lingui/macro';
-import { setupI18n } from 'src/i18n/i18n';
+import { Trans } from '@lingui/react/macro';
 import { useFonts } from 'src/hooks/fonts';
 
 import './styles/materialIcons.css';
 import './styles/fonts/robotoCondensed.css';
+import '@fullcalendar/react/skeleton.css';
+import '@fullcalendar/react/themes/classic/theme.css';
+import '@fullcalendar/react/themes/classic/palette.css';
 import './styles/fullcalendar.css';
 import './styles/main.scss';
 import './styles/tailwind.css';
-
-setupI18n();
 
 export const queryClient = new QueryClient({
   defaultOptions: {
@@ -32,28 +32,29 @@ export const queryClient = new QueryClient({
         console.log(x);
         return null;
       },
-      keepPreviousData: true,
-      onSuccess: (data) => {
-        if (
-          data &&
-          typeof data === 'object' &&
-          data['MediaTrackerError'] === true &&
-          typeof data['errorMessage'] === 'string'
-        ) {
-          throw new Error(data['errorMessage']);
-        }
-      },
+      placeholderData: keepPreviousData,
     },
   },
   queryCache: new QueryCache({
     onError: (error) => {
       if (error instanceof FetchError) {
         console.log(error.status);
-        globalSetErrorMessage(error.message);
+        globalSetErrorMessage?.(error.message);
       }
     },
-    onSuccess: () => {
-      globalSetErrorMessage(null);
+    onSuccess: (data) => {
+      const value = data as Record<string, unknown>;
+
+      if (
+        value &&
+        typeof value === 'object' &&
+        value['MediaTrackerError'] === true &&
+        typeof value['errorMessage'] === 'string'
+      ) {
+        globalSetErrorMessage?.(value['errorMessage'] as string);
+      } else {
+        globalSetErrorMessage?.(null);
+      }
     },
   }),
 });

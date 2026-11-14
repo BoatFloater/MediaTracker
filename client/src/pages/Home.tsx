@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { t } from '@lingui/macro';
+import { t } from '@lingui/core/macro';
 
 import { MediaItemItemsResponse } from 'mediatracker-api';
 import { useItems } from 'src/api/items';

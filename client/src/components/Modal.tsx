@@ -28,7 +28,9 @@ class OpenModalRefClass implements OpenModalRef {
   public _openModal: () => void;
 
   public open() {
-    this._openModal && this._openModal();
+    if (this._openModal) {
+      this._openModal();
+    }
   }
 }
 
@@ -37,9 +39,9 @@ export const useOpenModalRef = () => {
 };
 
 export const Modal = <ReturnType,>(props: {
-  openModal?: (openModal: () => void) => JSX.Element;
+  openModal?: (openModal: () => void) => React.JSX.Element;
   openModalRef?: React.MutableRefObject<OpenModalRef>;
-  children: (closeModal: () => void) => JSX.Element;
+  children: (closeModal: () => void) => React.JSX.Element;
   onClosed?: (arg?: ReturnType) => void;
   onBeforeClosed?: (arg?: ReturnType) => void;
   closeOnEscape?: boolean;
@@ -64,7 +66,9 @@ export const Modal = <ReturnType,>(props: {
 
   const closeModal: (arg?: ReturnType) => void = useCallback(
     (arg) => {
-      onBeforeClosed && onBeforeClosed(arg);
+      if (onBeforeClosed) {
+        onBeforeClosed(arg);
+      }
       setIsOpen(false);
       setReturnValue(arg);
     },
@@ -82,7 +86,7 @@ export const Modal = <ReturnType,>(props: {
     }
   }, [openModalRef]);
 
-  const mainContainerRef = useRef<HTMLDivElement>();
+  const mainContainerRef = useRef<HTMLDivElement>(null);
 
   const onClick: MouseEventHandler = (e) => {
     if (!closeOnBackgroundClick) {

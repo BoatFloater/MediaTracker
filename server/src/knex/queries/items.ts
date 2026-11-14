@@ -208,16 +208,17 @@ const getItemsKnexSql = async (args: GetItemsArgs) => {
         qb
           .select('mediaItemId')
           .count('*', { as: 'seenEpisodesCount' })
-          .from((qb: Knex.QueryBuilder) =>
-            qb
-              .select('mediaItemId')
-              .from<Seen>('seen')
-              .where('userId', userId)
-              .whereNotNull('episodeId')
-              .groupBy('mediaItemId', 'episodeId')
-              .leftJoin('episode', 'episode.id', 'seen.episodeId')
-              .whereNot('episode.isSpecialEpisode', true)
-              .as('seen')
+          .from(
+            ((qb: Knex.QueryBuilder) =>
+              qb
+                .select('mediaItemId')
+                .from<Seen>('seen')
+                .where('userId', userId)
+                .whereNotNull('episodeId')
+                .groupBy('mediaItemId', 'episodeId')
+                .leftJoin('episode', 'episode.id', 'seen.episodeId')
+                .whereNot('episode.isSpecialEpisode', true)
+                .as('seen')) as unknown as Knex.Raw
           )
           .groupBy('mediaItemId')
           .as('seenEpisodes'),

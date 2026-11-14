@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { Trans } from '@lingui/macro';
+import { Trans } from '@lingui/react/macro';
 
 import { Link } from 'react-router-dom';
 import { useDarkMode } from 'src/hooks/darkMode';

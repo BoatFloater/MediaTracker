@@ -15,6 +15,8 @@ export class CancellationToken {
   }
 
   public complected() {
-    this.resolve && this.resolve();
+    if (this.resolve) {
+      this.resolve();
+    }
   }
 }

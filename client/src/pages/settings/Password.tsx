@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import clsx from 'clsx';
-import { t, Trans } from '@lingui/macro';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 import { FetchError } from 'src/api/api';
 import { useUser } from 'src/api/user';

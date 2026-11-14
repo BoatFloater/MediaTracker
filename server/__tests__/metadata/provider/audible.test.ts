@@ -55,7 +55,7 @@ describe('audible', () => {
       audible.details({
         audibleId: 'B017V4IM1G',
       })
-    ).rejects.toThrowError(/B017V4IM1G/);
+    ).rejects.toThrow(/B017V4IM1G/);
   });
 });
 

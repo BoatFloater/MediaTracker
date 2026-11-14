@@ -1,16 +1,21 @@
 import React, { FunctionComponent, useState } from 'react';
-import { t, Trans } from '@lingui/macro';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { mediaTrackerApi } from 'src/api/api';
-import { useMutation } from 'react-query';
+import { useMutation } from '@tanstack/react-query';
 import { ImportSummaryTable } from 'src/components/ImportSummaryTable';
 
 const useGoodreadsImport = () => {
-  const importMutation = useMutation(mediaTrackerApi.importGoodreads.import);
+  const importMutation = useMutation({
+    mutationFn: (
+      data: Parameters<typeof mediaTrackerApi.importGoodreads.import>[0]
+    ) => mediaTrackerApi.importGoodreads.import(data),
+  });
 
   return {
     goodreadsImport: importMutation.mutate,
     summary: importMutation.data,
-    loading: importMutation.isLoading,
+    loading: importMutation.isPending,
   };
 };
 

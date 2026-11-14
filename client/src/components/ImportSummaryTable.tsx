@@ -1,4 +1,5 @@
-import { t, Trans } from '@lingui/macro';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import React, { FunctionComponent } from 'react';
 
 export const TvImportSummaryTableRowComponent: FunctionComponent<{

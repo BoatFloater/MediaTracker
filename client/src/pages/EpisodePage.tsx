@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { useParams } from 'react-router-dom';
-import { Trans } from '@lingui/macro';
+import { Trans } from '@lingui/react/macro';
 import { useDetails } from 'src/api/details';
 import {
   findEpisodeBySeasonAndEpisodeNumber,

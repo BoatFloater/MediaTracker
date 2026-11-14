@@ -26,12 +26,12 @@ describe('database config', () => {
 
     await Database.runMigrations(false);
 
-    expect(infoSpy).toBeCalledTimes(0);
-    expect(debugSpy).toBeCalledTimes(0);
-    expect(httpSpy).toBeCalledTimes(0);
-    expect(infoSpy).toBeCalledTimes(0);
-    expect(errorSpy).toBeCalledTimes(0);
-    expect(warnSpy).toBeCalledTimes(0);
+    expect(infoSpy).toHaveBeenCalledTimes(0);
+    expect(debugSpy).toHaveBeenCalledTimes(0);
+    expect(httpSpy).toHaveBeenCalledTimes(0);
+    expect(infoSpy).toHaveBeenCalledTimes(0);
+    expect(errorSpy).toHaveBeenCalledTimes(0);
+    expect(warnSpy).toHaveBeenCalledTimes(0);
   });
 
   it('should output logs', async () => {
@@ -43,12 +43,12 @@ describe('database config', () => {
 
     await Database.runMigrations(true);
 
-    expect(infoSpy).toBeCalledWith('migration');
-    expect(infoSpy).toBeCalledWith('migration2');
-    expect(debugSpy).toBeCalledTimes(0);
-    expect(httpSpy).toBeCalledTimes(0);
-    expect(errorSpy).toBeCalledTimes(0);
-    expect(warnSpy).toBeCalledTimes(0);
+    expect(infoSpy).toHaveBeenCalledWith('migration');
+    expect(infoSpy).toHaveBeenCalledWith('migration2');
+    expect(debugSpy).toHaveBeenCalledTimes(0);
+    expect(httpSpy).toHaveBeenCalledTimes(0);
+    expect(errorSpy).toHaveBeenCalledTimes(0);
+    expect(warnSpy).toHaveBeenCalledTimes(0);
   });
 
   it('should output logs', async () => {
@@ -71,11 +71,11 @@ describe('database config', () => {
 
     await Database.runMigrations(true);
 
-    expect(infoSpy).toBeCalledTimes(0);
-    expect(debugSpy).toBeCalledTimes(0);
-    expect(httpSpy).toBeCalledTimes(0);
-    expect(infoSpy).toBeCalledTimes(0);
-    expect(errorSpy).toBeCalledTimes(0);
-    expect(warnSpy).toBeCalledTimes(0);
+    expect(infoSpy).toHaveBeenCalledTimes(0);
+    expect(debugSpy).toHaveBeenCalledTimes(0);
+    expect(httpSpy).toHaveBeenCalledTimes(0);
+    expect(infoSpy).toHaveBeenCalledTimes(0);
+    expect(errorSpy).toHaveBeenCalledTimes(0);
+    expect(warnSpy).toHaveBeenCalledTimes(0);
   });
 });

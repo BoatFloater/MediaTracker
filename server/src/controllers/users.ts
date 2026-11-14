@@ -13,7 +13,7 @@ import { notificationPlatformsCredentialsRepository } from 'src/repository/notif
 import { configurationRepository } from 'src/repository/globalSettings';
 import { RequestError, toRequestErrorObject } from 'src/requestError';
 import { Config } from 'src/config';
-import { t } from '@lingui/macro';
+import { t } from '@lingui/core/macro';
 import { formatNotification } from 'src/notifications/notificationFormatter';
 
 type UserResponse = Omit<User, 'password'>;

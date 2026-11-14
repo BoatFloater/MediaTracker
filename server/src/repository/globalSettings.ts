@@ -62,7 +62,7 @@ export class GlobalConfiguration {
       ...value,
     };
 
-    value &&
+    if (value) {
       this.listeners.forEach(async ({ key, handler }) => {
         if (key in value && value[key] !== previousConfiguration[key]) {
           try {
@@ -72,6 +72,7 @@ export class GlobalConfiguration {
           }
         }
       });
+    }
   }
 
   public static get(): Configuration {

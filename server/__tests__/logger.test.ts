@@ -52,13 +52,13 @@ describe('logger', () => {
     logger.warn('warn');
     logger.http(httpLog);
 
-    expect(createLoggerSpy).toBeCalled();
-    expect(infoSpy).toBeCalledWith('info');
-    expect(debugSpy).toBeCalledWith('debug');
-    expect(infoSpy).toBeCalledWith('info');
-    expect(warnSpy).toBeCalledWith('warn');
-    expect(warnSpy).toBeCalledWith('warn');
-    expect(httpSpy).toBeCalledWith('', httpLog);
+    expect(createLoggerSpy).toHaveBeenCalled();
+    expect(infoSpy).toHaveBeenCalledWith('info');
+    expect(debugSpy).toHaveBeenCalledWith('debug');
+    expect(infoSpy).toHaveBeenCalledWith('info');
+    expect(warnSpy).toHaveBeenCalledWith('warn');
+    expect(warnSpy).toHaveBeenCalledWith('warn');
+    expect(httpSpy).toHaveBeenCalledWith('', httpLog);
 
     jest.clearAllMocks();
   });

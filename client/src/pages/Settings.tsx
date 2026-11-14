@@ -2,7 +2,8 @@ import React, { FunctionComponent } from 'react';
 import clsx from 'clsx';
 import { Navigate, Outlet, Route, Routes, useLocation } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
-import { Trans, t } from '@lingui/macro';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 import { useUser } from 'src/api/user';
 import { SettingsPasswordPage } from 'src/pages/settings/Password';

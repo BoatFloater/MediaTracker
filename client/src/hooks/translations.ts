@@ -1,4 +1,4 @@
-import { t } from '@lingui/macro';
+import { t } from '@lingui/core/macro';
 import { ListSortBy, SortOrder } from 'mediatracker-api';
 
 import { useTranslatedKeysFactory } from 'src/hooks/translatedKeysFactory';

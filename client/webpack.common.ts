@@ -4,10 +4,13 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import CopyPlugin from 'copy-webpack-plugin';
-import path from 'path';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-import { Configuration as WebpackConfiguration } from 'webpack';
-import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
+import type { Configuration as WebpackConfiguration } from 'webpack';
+import type { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 interface Configuration extends WebpackConfiguration {
   devServer?: WebpackDevServerConfiguration;
@@ -30,7 +33,7 @@ const config: Configuration = {
             loader: 'postcss-loader',
             options: {
               postcssOptions: {
-                plugins: ['postcss-import', 'tailwindcss', 'autoprefixer'],
+                plugins: ['@tailwindcss/postcss', 'autoprefixer'],
               },
             },
           },
@@ -60,6 +63,7 @@ const config: Configuration = {
       template: path.resolve(__dirname, './public/index.html'),
     }),
     new ESLintPlugin({
+      context: 'src',
       extensions: ['js', 'jsx', 'ts', 'tsx'],
     }),
     new CopyPlugin({

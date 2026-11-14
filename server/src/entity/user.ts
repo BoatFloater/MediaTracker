@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { NotificationPlatformsCredentialsType } from 'src/notifications/notifications';
+import type { NotificationPlatformsCredentialsType } from 'src/notifications/notifications';
 
 export type User = {
   id: number;

@@ -1,4 +1,4 @@
-import { t } from '@lingui/macro';
+import { t } from '@lingui/core/macro';
 import chalk from 'chalk';
 import http from 'http';
 import { parse } from 'path';
@@ -162,7 +162,6 @@ export class Server {
 
               await Database.knex.destroy();
 
-              // eslint-disable-next-line no-process-exit
               process.exit();
             };
 
@@ -207,9 +206,7 @@ type ApplicationConfig = {
   demo?: boolean;
 };
 export class Application {
-  #server: Server;
   #config: ApplicationConfig;
-  #sessionKey: string;
 
   constructor(config: ApplicationConfig) {
     this.#config = config;
@@ -375,7 +372,7 @@ export const createAndStartErrorServer = (args: {
   const { error, hostname, port } = args;
   const server = express();
 
-  server.all('*', (req, res) => {
+  server.use((req, res) => {
     res.status(500);
     res.send(
       String.raw`

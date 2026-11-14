@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useState } from 'react';
 import clsx from 'clsx';
-import { t, Trans } from '@lingui/macro';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { NavLink, useLocation } from 'react-router-dom';
 import { animated, Transition, Spring } from '@react-spring/web';
 

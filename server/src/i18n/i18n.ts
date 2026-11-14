@@ -1,6 +1,5 @@
 import { i18n } from '@lingui/core';
-import { t } from '@lingui/macro';
-import * as plurals from 'make-plural/plurals';
+import { t } from '@lingui/core/macro';
 
 import { logger } from 'src/logger';
 import { GlobalConfiguration } from 'src/repository/globalSettings';
@@ -13,16 +12,12 @@ import { messages as fr } from 'src/i18n/locales/fr/translation';
 import { messages as ko } from 'src/i18n/locales/ko/translation';
 import { messages as pt } from 'src/i18n/locales/pt/translation';
 
+// Migrations and early log messages can use translations before the
+// server configuration is loaded.
+i18n.load({ en: en });
+i18n.activate('en');
+
 export const setupI18n = (locale: string) => {
-  i18n.loadLocaleData({
-    da: { plurals: plurals.da },
-    de: { plurals: plurals.de },
-    en: { plurals: plurals.en },
-    es: { plurals: plurals.es },
-    fr: { plurals: plurals.fr },
-    pt: { plurals: plurals.pt },
-    ko: { plurals: plurals.ko },
-  });
   i18n.load({ da: da, de: de, en: en, es: es, fr: fr, pt: pt, ko: ko });
   i18n.activate(locale);
 

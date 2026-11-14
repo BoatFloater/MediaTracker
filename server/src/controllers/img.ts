@@ -39,7 +39,17 @@ export class ImgController {
       `${id}.webp`
     );
 
-    if (!(await fs.pathExists(imagePath))) {
+    let imageBuffer: Buffer;
+
+    if (await fs.pathExists(imagePath)) {
+      try {
+        imageBuffer = await fs.readFile(imagePath);
+      } catch {
+        imageBuffer = undefined;
+      }
+    }
+
+    if (!imageBuffer) {
       const imageUrl = await findImageUrlFromInternalId(id);
 
       if (!imageUrl) {
@@ -47,20 +57,21 @@ export class ImgController {
         return;
       }
 
-      await downloadAsset({
+      const downloadedImage = await downloadAsset({
         imageId: id,
         url: imageUrl,
       });
-    }
 
-    if (!(await fs.pathExists(imagePath))) {
-      res.sendStatus(404);
-      return;
+      imageBuffer =
+        size === 'small'
+          ? downloadedImage.small
+          : downloadedImage.original;
     }
 
     res.setHeader('Content-Type', 'image/webp');
+    res.setHeader('Content-Length', imageBuffer.length);
     res.set('Cache-Control', 'max-age=31536000');
-    res.sendFile(imagePath);
+    res.end(imageBuffer);
   });
 }
 

@@ -76,8 +76,8 @@ describe('config', () => {
 
     Config.migrate();
 
-    expect(moveSyncSpy).toBeCalledWith(oldImgPath, newImgPath);
-    expect(moveSyncSpy).toBeCalledWith(oldLogsPath, newLogsPath);
+    expect(moveSyncSpy).toHaveBeenCalledWith(oldImgPath, newImgPath);
+    expect(moveSyncSpy).toHaveBeenCalledWith(oldLogsPath, newLogsPath);
   });
 
   test('should do nothing if new config directory exists', () => {
@@ -90,11 +90,11 @@ describe('config', () => {
 
     Config.migrate();
 
-    expect(statSyncSpy).toBeCalledTimes(0);
-    expect(moveSyncSpy).toBeCalledTimes(0);
+    expect(statSyncSpy).toHaveBeenCalledTimes(0);
+    expect(moveSyncSpy).toHaveBeenCalledTimes(0);
   });
 
   test('validate should throw on invalid option', () => {
-    expect(() => Config.validate()).toThrowError(/AUDIBLE_LANG.*abc/);
+    expect(() => Config.validate()).toThrow(/AUDIBLE_LANG.*abc/);
   });
 });

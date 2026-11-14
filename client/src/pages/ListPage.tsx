@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
-import { Plural, t, Trans } from '@lingui/macro';
+import { t } from '@lingui/core/macro';
+import { Plural, Trans } from '@lingui/react/macro';
 import { useParams } from 'react-router-dom';
 
 import { GridItem } from 'src/components/GridItem';

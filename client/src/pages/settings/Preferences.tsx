@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { t } from '@lingui/macro';
+import { t } from '@lingui/core/macro';
 import { useUser } from 'src/api/user';
 import { CheckboxWithTitleAndDescription } from 'src/components/Checkbox';
 

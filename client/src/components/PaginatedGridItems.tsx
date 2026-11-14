@@ -9,7 +9,7 @@ import React, {
 
 import clsx from 'clsx';
 import { Link, useSearchParams } from 'react-router-dom';
-import { Plural, Trans } from '@lingui/macro';
+import { Plural, Trans } from '@lingui/react/macro';
 
 import { useSearch } from 'src/api/search';
 import { Items } from 'mediatracker-api';
@@ -104,7 +104,7 @@ export const PaginatedGridItems: FunctionComponent<{
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [orderBy, sortOrder, JSON.stringify(filter)]);
 
-  const mainContainerRef = useRef<HTMLDivElement>();
+  const mainContainerRef = useRef<HTMLDivElement>(null);
 
   const setPage = useCallback(
     (value: number) => {
@@ -164,14 +164,16 @@ export const PaginatedGridItems: FunctionComponent<{
       });
       search({ mediaType: args.mediaType, query: searchQuery });
       _setPage(1);
-    } else {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [args.mediaType, searchQuery]);
 
   const isLoading = isLoadingSearchResult || isLoadingItems;
   const noItems =
-    !isLoading && !searchQuery && items.length === 0 && filter === {};
+    !isLoading &&
+    !searchQuery &&
+    items.length === 0 &&
+    Object.keys(filter).length === 0;
 
   return (
     <>

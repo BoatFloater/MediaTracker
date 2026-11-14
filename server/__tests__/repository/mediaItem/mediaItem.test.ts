@@ -59,7 +59,7 @@ describe('mediaItemRepository', () => {
       ...mediaItem,
       seasons: mediaItem.seasons.map((season) => ({
         ...season,
-        externalPosterUrl: null,
+        externalPosterUrl: null as string,
       })),
       externalPosterUrl: undefined,
       externalBackdropUrl: undefined,

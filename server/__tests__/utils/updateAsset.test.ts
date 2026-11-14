@@ -49,17 +49,20 @@ describe('updateAsset', () => {
     );
 
     const rmSpy = jest.spyOn(fs, 'rm').mockImplementation(jest.fn());
+    const writeFileSpy = jest
+      .spyOn(fs, 'writeFile')
+      .mockImplementation(jest.fn());
 
     await downloadAsset({
       imageId: imageId,
       url: url,
     });
 
-    expect(axiosSpy).toBeCalledWith(url, {
+    expect(axiosSpy).toHaveBeenCalledWith(url, {
       responseType: 'arraybuffer',
     });
 
-    expect(ensureDirSpy).toBeCalled();
+    expect(ensureDirSpy).toHaveBeenCalled();
 
     await updateAsset({
       type: 'poster',
@@ -82,7 +85,7 @@ describe('updateAsset', () => {
 
     expect(mediaItemWithImage.posterId).toBeDefined();
     expect(seasonWithImage.posterId).toBeDefined();
-    expect(rmSpy).toBeCalledTimes(0);
+    expect(rmSpy).toHaveBeenCalledTimes(0);
 
     jest.spyOn(fs, 'pathExists').mockImplementation(() => true);
 
@@ -113,7 +116,7 @@ describe('updateAsset', () => {
     expect(updatedSeason.posterId).not.toBe(
       seasonWithImage.posterId
     );
-    expect(rmSpy).toBeCalled();
+    expect(rmSpy).toHaveBeenCalled();
 
     rmSpy.mockReset();
     jest.spyOn(fs, 'pathExists').mockImplementation(() => false);
@@ -129,6 +132,6 @@ describe('updateAsset', () => {
       season: season,
     });
 
-    expect(rmSpy).not.toBeCalled();
+    expect(rmSpy).not.toHaveBeenCalled();
   });
 });

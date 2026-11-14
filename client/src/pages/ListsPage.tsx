@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { Plural, Trans } from '@lingui/macro';
+import { Plural, Trans } from '@lingui/react/macro';
 
 import { useSearchParams } from 'react-router-dom';
 import { useLists } from 'src/api/lists';

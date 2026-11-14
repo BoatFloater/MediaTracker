@@ -1,5 +1,5 @@
 import React from 'react';
-import { t } from '@lingui/macro';
+import { t } from '@lingui/core/macro';
 
 import { MediaType } from 'mediatracker-api';
 import { isAudiobook, isBook, isVideoGame, reverseMap } from 'src/utils';

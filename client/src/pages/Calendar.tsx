@@ -1,32 +1,31 @@
 import React, { FunctionComponent, useMemo, useState } from 'react';
-import { useQuery } from 'react-query';
-import FullCalendar, { DatesSetArg } from '@fullcalendar/react';
-import dayGridPlugin from '@fullcalendar/daygrid';
-import listPlugin from '@fullcalendar/list';
-import allLocales from '@fullcalendar/core/locales-all';
+import { keepPreviousData, useQuery } from '@tanstack/react-query';
+import FullCalendar, { DatesSetInfo } from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/react/daygrid';
+import listPlugin from '@fullcalendar/react/list';
+import classicThemePlugin from '@fullcalendar/react/themes/classic';
+import allLocales from '@fullcalendar/react/locales-all';
 import { useLingui } from '@lingui/react';
 import { parseISO } from 'date-fns';
 
 import { MediaType, TvEpisode } from 'mediatracker-api';
 import { mediaTrackerApi } from 'src/api/api';
 import { formatEpisodeNumber } from 'src/utils';
-import { Trans } from '@lingui/macro';
+import { Trans } from '@lingui/react/macro';
 
 export const CalendarPage: FunctionComponent = () => {
-  const [datesSet, setDatesSet] = useState<DatesSetArg>();
+  const [datesSet, setDatesSet] = useState<DatesSetInfo>();
 
-  const { data, isLoading } = useQuery(
-    ['calendar', datesSet?.startStr, datesSet?.endStr],
-    () =>
+  const { data, isLoading } = useQuery({
+    queryKey: ['calendar', datesSet?.startStr, datesSet?.endStr],
+    queryFn: () =>
       mediaTrackerApi.calendar.get({
         start: datesSet.startStr,
         end: datesSet.endStr,
       }),
-    {
-      keepPreviousData: true,
-      enabled: datesSet !== undefined,
-    }
-  );
+    placeholderData: keepPreviousData,
+    enabled: datesSet !== undefined,
+  });
 
   const events = useMemo(
     () =>
@@ -67,7 +66,7 @@ export const CalendarPage: FunctionComponent = () => {
       <FullCalendar
         locales={allLocales}
         locale={lingui.i18n.locale}
-        plugins={[dayGridPlugin, listPlugin]}
+        plugins={[dayGridPlugin, listPlugin, classicThemePlugin]}
         headerToolbar={{
           left: 'title',
           center: '',

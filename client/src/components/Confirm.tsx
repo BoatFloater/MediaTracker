@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
-import ReactDOM from 'react-dom';
-import { Trans } from '@lingui/macro';
+import { createRoot } from 'react-dom/client';
+import { Trans } from '@lingui/react/macro';
 import { I18nProvider } from '@lingui/react';
 import { i18n } from '@lingui/core';
 
@@ -11,9 +11,10 @@ export const Confirm = async (message: string) => {
   const node = document.createElement('div');
 
   portal.appendChild(node);
+  const root = createRoot(node);
 
   return await new Promise<boolean>((resolve) => {
-    ReactDOM.render(
+    root.render(
       <React.StrictMode>
         <I18nProvider i18n={i18n}>
           <Modal>
@@ -22,6 +23,7 @@ export const Confirm = async (message: string) => {
                 message={message}
                 resolve={(res) => {
                   closeModal();
+                  root.unmount();
                   portal.removeChild(node);
 
                   resolve(res);
@@ -30,8 +32,7 @@ export const Confirm = async (message: string) => {
             )}
           </Modal>
         </I18nProvider>
-      </React.StrictMode>,
-      node
+      </React.StrictMode>
     );
   });
 };

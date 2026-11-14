@@ -84,7 +84,7 @@ export class TraktTvExport {
     const limit = 1000;
 
     let page = 1;
-    let pageCount: number = undefined;
+    let pageCount: number;
 
     do {
       const historyResponse = await axios.get<TraktApi.HistoryResponse>(

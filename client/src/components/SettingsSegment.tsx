@@ -1,9 +1,11 @@
 import React, { FunctionComponent } from 'react';
 
-export const SettingsSegment: FunctionComponent<{
-  title: string;
-  href?: string;
-}> = (props) => {
+export const SettingsSegment: FunctionComponent<
+  React.PropsWithChildren<{
+    title: string;
+    href?: string;
+  }>
+> = (props) => {
   const { title, href, children } = props;
 
   return (

@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
-import { Plural, Trans } from '@lingui/macro';
+import { Plural, Trans } from '@lingui/react/macro';
 
 import { TvEpisode } from 'mediatracker-api';
 import { useDetails } from 'src/api/details';

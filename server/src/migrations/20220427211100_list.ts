@@ -74,7 +74,6 @@ export async function up(knex: Knex): Promise<void> {
 
   for (const list of lists) {
     const slug = toSlug(list.name);
-    let listIndex = 0;
 
     await knex('list').update({
       slug: knex.raw(
@@ -84,7 +83,7 @@ export async function up(knex: Knex): Promise<void> {
           .where('slug', slug)
           .toQuery()}) = 0  THEN '${slug}' ELSE '${slug}-${randomSlugId()}' END)`
       ),
-      rank: listIndex++,
+      rank: 0,
       sortBy: 'recently-watched',
       sortOrder: 'desc',
     });

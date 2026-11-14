@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
-import { plural, Trans } from '@lingui/macro';
+import { plural } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 
 import {
   MediaItemDetailsResponse,

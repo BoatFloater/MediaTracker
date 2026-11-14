@@ -10,15 +10,17 @@
   <title>Media Tracker</title>
 
   <script>
-    if (
+    const isDark =
       localStorage.theme === 'dark' ||
       (!('theme' in localStorage) &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
+        window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+    document.documentElement.classList.toggle('dark', isDark);
+    document.documentElement.setAttribute(
+      'data-color-scheme',
+      isDark ? 'dark' : 'light'
+    );
+    document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
   </script>
 </head>
 

@@ -1,3 +1,9 @@
+@reference "./tailwind.css";
+
+a {
+  @apply dark:text-white;
+}
+
 body {
   @apply dark:bg-neutral-700 dark:text-white;
 }

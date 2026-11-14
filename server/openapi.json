@@ -4044,30 +4044,37 @@
       "LogEntry": {
         "oneOf": [
           {
-            "type": "object",
-            "properties": {
-              "message": {
-                "type": "string"
+            "allOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  },
+                  "level": {
+                    "type": "string"
+                  },
+                  "stack": {
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "timestamp": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "level",
+                  "message",
+                  "timestamp"
+                ]
               },
-              "id": {
-                "type": "string"
-              },
-              "level": {
-                "type": "string"
-              },
-              "stack": {
-                "type": "string",
-                "nullable": true
-              },
-              "timestamp": {
-                "type": "string"
+              {
+                "type": "object"
               }
-            },
-            "required": [
-              "id",
-              "level",
-              "message",
-              "timestamp"
             ]
           },
           {

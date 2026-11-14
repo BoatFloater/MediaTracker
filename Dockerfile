@@ -1,5 +1,5 @@
 # Build libvips
-FROM node:22-alpine3.22 AS node-libvips-dev
+FROM node:26-alpine3.22 AS node-libvips-dev
 
 ENV VIPS_VERSION=8.18.7
 ENV VIPS_ARCHIVE_FILENAME=vips-${VIPS_VERSION}.tar.xz
@@ -56,7 +56,7 @@ COPY ["server/package.json", "server/package-lock.json*", "./"]
 RUN apk add --no-cache python3 g++ make
 RUN npm ci --omit=dev
 
-FROM node:22-alpine3.22 AS node
+FROM node:26-alpine3.22 AS node
 FROM alpine-libvips
 
 RUN apk add --no-cache curl shadow

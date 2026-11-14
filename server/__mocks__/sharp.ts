@@ -3,7 +3,7 @@ const result = {
   webp: jest.fn().mockReturnThis(),
   raw: jest.fn().mockReturnThis(),
   toFile: jest.fn().mockReturnThis(),
-  toBuffer: jest.fn().mockReturnThis(),
+  toBuffer: jest.fn(async () => Buffer.from('')),
   removeAlpha: jest.fn().mockReturnThis(),
   ensureAlpha: jest.fn().mockReturnThis(),
   extractChannel: jest.fn().mockReturnThis(),

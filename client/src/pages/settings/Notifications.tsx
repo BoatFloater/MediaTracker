@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useEffect, useRef } from 'react';
-import { t, Trans } from '@lingui/macro';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { User } from 'mediatracker-api';
 import { useNotificationPlatformsCredentials } from 'src/api/notificationPlatformsCredentials';
 import { useUser } from 'src/api/user';
@@ -174,12 +175,14 @@ const NotificationPlatform: FunctionComponent = () => {
   );
 };
 
-const NotificationPlatformsCredentials: FunctionComponent<{
-  platformName: string;
-  href: string;
-}> = (props) => {
+const NotificationPlatformsCredentials: FunctionComponent<
+  React.PropsWithChildren<{
+    platformName: string;
+    href: string;
+  }>
+> = (props) => {
   const { platformName, href } = props;
-  const formRef = useRef<HTMLFormElement>();
+  const formRef = useRef<HTMLFormElement>(null);
 
   const {
     notificationPlatformsCredentials,

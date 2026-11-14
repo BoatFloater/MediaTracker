@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { add } from 'date-fns';
-import { ensureDir, pathExists, rm } from 'fs-extra';
+import type { Duration } from 'date-fns';
+import { ensureDir, pathExists, rm, writeFile } from 'fs-extra';
 import { customAlphabet } from 'nanoid';
 import path from 'path';
 import sharp from 'sharp';
@@ -40,17 +41,23 @@ export const downloadAsset = async (args: { imageId: string; url: string }) => {
     responseType: 'arraybuffer',
   });
 
-  await ensureDir(path.dirname(imagePath));
-  await sharp(response.data)
+  const original = await sharp(response.data)
     .resize({ width: 800 })
     .webp({ quality: 80 })
-    .toFile(imagePath);
+    .toBuffer();
 
-  await ensureDir(path.dirname(imageSmallPath));
-  await sharp(response.data)
+  const small = await sharp(response.data)
     .resize({ width: 400 })
     .webp({ quality: 80 })
-    .toFile(imageSmallPath);
+    .toBuffer();
+
+  await ensureDir(path.dirname(imagePath));
+  await writeFile(imagePath, original);
+
+  await ensureDir(path.dirname(imageSmallPath));
+  await writeFile(imageSmallPath, small);
+
+  return { original, small };
 };
 
 export const updateAsset = async (args: {

@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { t } from '@lingui/macro';
+import { t } from '@lingui/core/macro';
 
 import { gotify } from 'src/notifications/platforms/gotify';
 import { Discord } from 'src/notifications/platforms/discord';

@@ -2,7 +2,8 @@ import React, { FunctionComponent, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import clsx from 'clsx';
-import { Plural, t, Trans } from '@lingui/macro';
+import { t } from '@lingui/core/macro';
+import { Plural, Trans } from '@lingui/react/macro';
 import { parseISO } from 'date-fns';
 
 import { useDetails } from 'src/api/details';
@@ -125,20 +126,20 @@ export const SeasonsPage: FunctionComponent = () => {
 
   const navigate = useNavigate();
 
-  useEffect(
-    () => seasonNumber && setSelectedSeasonNumber(Number(seasonNumber)),
-    [seasonNumber, setSelectedSeasonNumber]
-  );
+  useEffect(() => {
+    if (seasonNumber) {
+      setSelectedSeasonNumber(Number(seasonNumber));
+    }
+  }, [seasonNumber, setSelectedSeasonNumber]);
 
-  useEffect(
-    () =>
-      selectedSeasonNumber !== undefined &&
+  useEffect(() => {
+    if (selectedSeasonNumber !== undefined) {
       navigate(`/seasons/${mediaItemId}/${selectedSeasonNumber}`, {
         replace: true,
-      }),
+      });
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [selectedSeasonNumber]
-  );
+  }, [selectedSeasonNumber]);
 
   if (isLoading || !selectedSeason) {
     return <Trans>Loading</Trans>;

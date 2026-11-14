@@ -15,6 +15,6 @@ describe('catchAndLogError', () => {
       throw new Error('Error 56789');
     });
 
-    expect(errorLoggerSpy).toBeCalledTimes(2);
+    expect(errorLoggerSpy).toHaveBeenCalledTimes(2);
   });
 });

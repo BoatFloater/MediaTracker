@@ -6,22 +6,23 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { useSpring } from '@react-spring/core';
-import { animated } from '@react-spring/web';
+import { animated, useSpring } from '@react-spring/web';
 
 import { MediaType } from 'mediatracker-api';
 
-const PosterCss: FunctionComponent<{
-  src?: string;
-  href?: string;
-  mediaType?: MediaType;
-  itemMediaType?: MediaType;
-}> = (props) => {
+const PosterCss: FunctionComponent<
+  React.PropsWithChildren<{
+    src?: string;
+    href?: string;
+    mediaType?: MediaType;
+    itemMediaType?: MediaType;
+  }>
+> = (props) => {
   const { src, href, mediaType, itemMediaType, children } = props;
 
   const [imageLoaded, setImageLoaded] = useState(false);
 
-  const imgRef = useRef<HTMLImageElement>();
+  const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     if (!src) {
@@ -91,16 +92,18 @@ const PosterCss: FunctionComponent<{
   );
 };
 
-const PosterSpring: FunctionComponent<{
-  src?: string;
-  href?: string;
-  mediaType?: MediaType;
-  itemMediaType?: MediaType;
-}> = (props) => {
+const PosterSpring: FunctionComponent<
+  React.PropsWithChildren<{
+    src?: string;
+    href?: string;
+    mediaType?: MediaType;
+    itemMediaType?: MediaType;
+  }>
+> = (props) => {
   const { src, href, mediaType, itemMediaType, children } = props;
 
   const [imageLoaded, setImageLoaded] = useState(false);
-  const imgRef = useRef<HTMLImageElement>();
+  const imgRef = useRef<HTMLImageElement>(null);
 
   const imageStyles = useSpring({
     from: {

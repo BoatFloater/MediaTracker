@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { Plural, Trans } from '@lingui/macro';
+import { Plural, Trans } from '@lingui/react/macro';
 
 import { mediaTrackerApi } from 'src/api/api';
 import { useDetails } from 'src/api/details';

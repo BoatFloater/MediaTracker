@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import chalk from 'chalk';
-import { plural, t } from '@lingui/macro';
+import { plural, t } from '@lingui/core/macro';
 import { parseISO } from 'date-fns';
 
 import {
@@ -195,6 +195,7 @@ const sendNotifications = async (
   }
 
   if (
+    newMediaItem.releaseDate &&
     newMediaItem.releaseDate !== oldMediaItem.releaseDate &&
     parseISO(newMediaItem.releaseDate) > new Date()
   ) {
@@ -290,6 +291,7 @@ const sendNotifications = async (
         newMediaItemNonSpecialSeasons[newMediaItemNonSpecialSeasons.length - 1];
 
       if (
+        newMediaItemLastSeason.releaseDate &&
         oldMediaItemLastSeason.releaseDate !==
           newMediaItemLastSeason.releaseDate &&
         parseISO(newMediaItemLastSeason.releaseDate) > new Date()

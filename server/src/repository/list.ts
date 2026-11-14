@@ -656,16 +656,17 @@ class ListRepository extends repository<List>({
           qb
             .select('mediaItemId')
             .count('*', { as: 'seenEpisodesCount' })
-            .from((qb: Knex.QueryBuilder) =>
-              qb
-                .select('mediaItemId')
-                .from<Seen>('seen')
-                .where('userId', userId)
-                .whereNotNull('episodeId')
-                .groupBy('mediaItemId', 'episodeId')
-                .leftJoin('episode', 'episode.id', 'seen.episodeId')
-                .where('episode.isSpecialEpisode', false)
-                .as('seen')
+            .from(
+              ((qb: Knex.QueryBuilder) =>
+                qb
+                  .select('mediaItemId')
+                  .from<Seen>('seen')
+                  .where('userId', userId)
+                  .whereNotNull('episodeId')
+                  .groupBy('mediaItemId', 'episodeId')
+                  .leftJoin('episode', 'episode.id', 'seen.episodeId')
+                  .where('episode.isSpecialEpisode', false)
+                  .as('seen')) as unknown as Knex.Raw
             )
             .groupBy('mediaItemId')
             .as('mediaItemSeenEpisodes'),
@@ -678,16 +679,17 @@ class ListRepository extends repository<List>({
           qb
             .select('mediaItemId')
             .count('*', { as: 'seenEpisodesCount' })
-            .from((qb: Knex.QueryBuilder) =>
-              qb
-                .select('mediaItemId')
-                .from<Seen>('seen')
-                .where('userId', userId)
-                .whereNotNull('episodeId')
-                .groupBy('mediaItemId', 'episodeId')
-                .leftJoin('episode', 'episode.id', 'seen.episodeId')
-                .where('episode.isSpecialEpisode', false)
-                .as('seen')
+            .from(
+              ((qb: Knex.QueryBuilder) =>
+                qb
+                  .select('mediaItemId')
+                  .from<Seen>('seen')
+                  .where('userId', userId)
+                  .whereNotNull('episodeId')
+                  .groupBy('mediaItemId', 'episodeId')
+                  .leftJoin('episode', 'episode.id', 'seen.episodeId')
+                  .where('episode.isSpecialEpisode', false)
+                  .as('seen')) as unknown as Knex.Raw
             )
             .groupBy('mediaItemId')
             .as('seasonSeenEpisodes'),

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { t } from '@lingui/macro';
+import { t } from '@lingui/core/macro';
 
 import { MediaItemOrderBy, MediaType, SortOrder } from 'mediatracker-api';
 import { isTvShow, reverseMap } from 'src/utils';

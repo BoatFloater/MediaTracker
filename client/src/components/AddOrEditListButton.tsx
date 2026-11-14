@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useState, useRef } from 'react';
-import { Trans, t } from '@lingui/macro';
+import { t } from '@lingui/core/macro';
+import { Trans } from '@lingui/react/macro';
 import { ListPrivacy, ListSortBy, ListSortOrder } from 'mediatracker-api';
 
 import { mediaTrackerApi } from 'src/api/api';
@@ -78,7 +79,7 @@ const AddOrEditListModal: FunctionComponent<{
   const location = useLocation();
   const navigate = useNavigate();
 
-  const nameRef = useRef<HTMLInputElement>();
+  const nameRef = useRef<HTMLInputElement>(null);
 
   const edit = Boolean(list);
 

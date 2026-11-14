@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useRef } from 'react';
-import format from 'date-fns/format';
-import { Trans } from '@lingui/macro';
+import { format } from 'date-fns';
+import { Trans } from '@lingui/react/macro';
 
 import { markAsSeen } from 'src/api/details';
 import { SelectLastSeenEpisode } from 'src/components/SelectLastSeenEpisode';

@@ -1,10 +1,9 @@
 #!/usr/bin/env node
-/* eslint-disable node/shebang */
 
 import 'source-map-support/register';
 
 import chalk from 'chalk';
-import { t } from '@lingui/macro';
+import { t } from '@lingui/core/macro';
 
 import { GlobalConfiguration } from 'src/repository/globalSettings';
 import { updateMediaItems } from 'src/updateMetadata';

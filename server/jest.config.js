@@ -1,9 +1,9 @@
-/** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
+/** @type {import('jest').Config} */
 module.exports = {
-  preset: 'ts-jest',
   testEnvironment: 'node',
   testPathIgnorePatterns: ['/__utils__/', '/__setup__/', 'build'],
   modulePathIgnorePatterns: ['build'],
+  transformIgnorePatterns: ['/node_modules/(?!(chalk|nanoid)/)'],
   transform: {
     '^.+\\.[t|j]sx?$': 'babel-jest',
   },
@@ -14,5 +14,5 @@ module.exports = {
   ],
   reporters: ['default', 'jest-junit'],
   testLocationInResults: true,
-  testTimeout: 30000
+  testTimeout: 30000,
 };

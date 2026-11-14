@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState } from 'react';
 import clsx from 'clsx';
-import { Trans } from '@lingui/macro';
+import { Trans } from '@lingui/react/macro';
 
 import { MediaItemItemsResponse, TvEpisode, TvSeason } from 'mediatracker-api';
 import { setRating } from 'src/api/details';
@@ -103,8 +103,8 @@ const StarRatingModal: FunctionComponent<
 
   const _closeModal = () => {
     closeModal();
-    queryClient.invalidateQueries(['items']);
-    queryClient.invalidateQueries(['list']);
+    queryClient.invalidateQueries({ queryKey: ['items'] });
+    queryClient.invalidateQueries({ queryKey: ['list'] });
   };
 
   return (

@@ -121,8 +121,7 @@ export type LogEntry = {
   level: string;
   stack?: string;
   timestamp: string;
-  // eslint-disable-next-line @typescript-eslint/ban-types
-} & (HttpLogEntry | ValidationErrorLogEntry | {});
+} & (HttpLogEntry | ValidationErrorLogEntry | Record<string, unknown>);
 
 export type HttpLogEntry = {
   type: 'http';

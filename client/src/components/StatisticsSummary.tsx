@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
-import { useQuery } from 'react-query';
-import { Trans } from '@lingui/macro';
+import { useQuery } from '@tanstack/react-query';
+import { Trans } from '@lingui/react/macro';
 import { MediaType } from 'mediatracker-api';
 
 import { mediaTrackerApi } from 'src/api/api';
@@ -8,7 +8,7 @@ import { FormatDuration } from 'src/components/date';
 
 const Foo: FunctionComponent<{
   mediaType: MediaType;
-  content: JSX.Element;
+  content: React.JSX.Element;
 }> = (props) => {
   const { mediaType, content } = props;
 
@@ -23,10 +23,10 @@ const Foo: FunctionComponent<{
 };
 
 export const StatisticsSummary: FunctionComponent = () => {
-  const { data } = useQuery(
-    ['statistics', 'summary'],
-    mediaTrackerApi.statistics.summary
-  );
+  const { data } = useQuery({
+    queryKey: ['statistics', 'summary'],
+    queryFn: () => mediaTrackerApi.statistics.summary(),
+  });
 
   return (
     <>

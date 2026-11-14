@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useState } from 'react';
-import { Trans } from '@lingui/macro';
+import { Trans } from '@lingui/react/macro';
 import { useTokens } from 'src/api/token';
 
 export const SettingsApplicationTokensPage: FunctionComponent = () => {

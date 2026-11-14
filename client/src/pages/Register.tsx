@@ -1,5 +1,5 @@
 import React, { FormEventHandler, FunctionComponent, useState } from 'react';
-import { Trans } from '@lingui/macro';
+import { Trans } from '@lingui/react/macro';
 import { Link } from 'react-router-dom';
 import { useConfiguration } from 'src/api/configuration';
 import { useRegisterUser } from 'src/api/user';

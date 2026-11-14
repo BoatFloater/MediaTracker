@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useState, useEffect } from 'react';
-import { Plural, Trans } from '@lingui/macro';
+import { Plural, Trans } from '@lingui/react/macro';
 
 import { MediaItemItemsResponse, MediaType } from 'mediatracker-api';
 import { addToProgress } from 'src/api/details';
@@ -16,7 +16,9 @@ const InputComponent: FunctionComponent<{
 
   useEffect(() => {
     const newValue = Math.round((max * progress) / 100);
-    Math.abs(progress - newValue) > 0.001 && setValue(newValue);
+    if (Math.abs(progress - newValue) > 0.001) {
+      setValue(newValue);
+    }
   }, [max, progress]);
 
   return (

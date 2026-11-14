@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import clsx from 'clsx';
-import { Plural, Trans } from '@lingui/macro';
+import { Plural, Trans } from '@lingui/react/macro';
 import { parseISO } from 'date-fns';
 
 import {

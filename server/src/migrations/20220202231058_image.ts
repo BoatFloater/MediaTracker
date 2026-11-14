@@ -1,4 +1,4 @@
-import { t } from '@lingui/macro';
+import { t } from '@lingui/core/macro';
 import chalk from 'chalk';
 import { existsSync, moveSync, rmSync } from 'fs-extra';
 import { Knex } from 'knex';

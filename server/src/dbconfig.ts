@@ -1,5 +1,5 @@
 import knexLib, { Knex } from 'knex';
-import { t, plural } from '@lingui/macro';
+import { t, plural } from '@lingui/core/macro';
 
 import { Config } from 'src/config';
 import { logger } from 'src/logger';
