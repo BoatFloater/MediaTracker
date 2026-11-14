@@ -1,17 +1,17 @@
 name: Docker build
 
-on: "workflow_dispatch"
+on: 'workflow_dispatch'
 
 jobs:
   release:
     name: Docker build
     runs-on: ubuntu-latest
-    steps:      
+    steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: main      
-      - name: Get version                
+          ref: main
+      - name: Get version
         uses: actions/github-script@v6
         id: version
         with:

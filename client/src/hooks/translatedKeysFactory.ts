@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 
 export const useTranslatedKeysFactory = <
   Key extends string,
-  Translation extends string = string
+  Translation extends string = string,
 >(
   arg: Record<Key, Translation>
 ) => {

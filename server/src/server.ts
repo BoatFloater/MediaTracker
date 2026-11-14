@@ -176,10 +176,13 @@ export class Server {
             if (this.#config.production) {
               await catchAndLogError(updateMetadata);
 
-              setInterval(async () => {
-                await catchAndLogError(updateMetadata);
-                await catchAndLogError(sendNotifications);
-              }, durationToMilliseconds({ hours: 1 }));
+              setInterval(
+                async () => {
+                  await catchAndLogError(updateMetadata);
+                  await catchAndLogError(sendNotifications);
+                },
+                durationToMilliseconds({ hours: 1 })
+              );
             }
           } catch (error) {
             reject(error);

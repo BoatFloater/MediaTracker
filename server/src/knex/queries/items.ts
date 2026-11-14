@@ -17,9 +17,8 @@ import { Progress } from 'src/entity/progress';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const getItemsKnex = async (args: any): Promise<any> => {
   const { page } = args;
-  const { sqlQuery, sqlCountQuery, sqlPaginationQuery } = await getItemsKnexSql(
-    args
-  );
+  const { sqlQuery, sqlCountQuery, sqlPaginationQuery } =
+    await getItemsKnexSql(args);
 
   if (page) {
     const [resCount, res] = await Database.knex.transaction(async (trx) => {
@@ -208,18 +207,16 @@ const getItemsKnexSql = async (args: GetItemsArgs) => {
         qb
           .select('mediaItemId')
           .count('*', { as: 'seenEpisodesCount' })
-          .from(
-            ((qb: Knex.QueryBuilder) =>
-              qb
-                .select('mediaItemId')
-                .from<Seen>('seen')
-                .where('userId', userId)
-                .whereNotNull('episodeId')
-                .groupBy('mediaItemId', 'episodeId')
-                .leftJoin('episode', 'episode.id', 'seen.episodeId')
-                .whereNot('episode.isSpecialEpisode', true)
-                .as('seen')) as unknown as Knex.Raw
-          )
+          .from(((qb: Knex.QueryBuilder) =>
+            qb
+              .select('mediaItemId')
+              .from<Seen>('seen')
+              .where('userId', userId)
+              .whereNotNull('episodeId')
+              .groupBy('mediaItemId', 'episodeId')
+              .leftJoin('episode', 'episode.id', 'seen.episodeId')
+              .whereNot('episode.isSpecialEpisode', true)
+              .as('seen')) as unknown as Knex.Raw)
           .groupBy('mediaItemId')
           .as('seenEpisodes'),
       'seenEpisodes.mediaItemId',
@@ -483,7 +480,7 @@ const getItemsKnexSql = async (args: GetItemsArgs) => {
 
 export const generateColumnNames = <
   Prefix extends string,
-  Properties extends ReadonlyArray<string>
+  Properties extends ReadonlyArray<string>,
 >(
   prefix: Prefix,
   properties: Properties
@@ -666,7 +663,7 @@ export class QueryBuilderHelper {
   }
   static firstUnwatchedEpisode<
     TRecord = unknown,
-    TResult = Record<string, unknown>[]
+    TResult = Record<string, unknown>[],
   >(
     query: Knex.QueryBuilder<TRecord, TResult>,
     userId: number,

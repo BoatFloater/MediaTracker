@@ -102,15 +102,15 @@ export const getUserLists = async (args: {
                   episodeId: episodeId,
                 }
               : seasonId
-              ? {
-                  seasonId: seasonId,
-                  episodeId: null,
-                }
-              : {
-                  mediaItemId: mediaItemId,
-                  seasonId: null,
-                  episodeId: null,
-                }
+                ? {
+                    seasonId: seasonId,
+                    episodeId: null,
+                  }
+                : {
+                    mediaItemId: mediaItemId,
+                    seasonId: null,
+                    episodeId: null,
+                  }
           )
           .groupBy('listId')
           .as('listItem'),

@@ -63,9 +63,7 @@ export class ImgController {
       });
 
       imageBuffer =
-        size === 'small'
-          ? downloadedImage.small
-          : downloadedImage.original;
+        size === 'small' ? downloadedImage.small : downloadedImage.original;
     }
 
     res.setHeader('Content-Type', 'image/webp');

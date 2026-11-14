@@ -26,9 +26,7 @@ export const getLogs = async (args?: {
 
   const logs: LogEntry[] = (
     await Promise.all(
-      (
-        await readdir(Config.LOGS_PATH)
-      )
+      (await readdir(Config.LOGS_PATH))
         ?.filter((filename) => filename.match(/(debug|http)\d*.log/))
         ?.sort()
         ?.map((filename) => path.join(Config.LOGS_PATH, filename))

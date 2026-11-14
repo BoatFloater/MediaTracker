@@ -1,5 +1,10 @@
 import React, { FunctionComponent } from 'react';
-import { keepPreviousData, QueryCache, QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import {
+  keepPreviousData,
+  QueryCache,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query';
 import { HashRouter as Router } from 'react-router-dom';
 import { FetchError } from 'src/api/api';
 import { DarkModeProvider } from 'src/hooks/darkMode';

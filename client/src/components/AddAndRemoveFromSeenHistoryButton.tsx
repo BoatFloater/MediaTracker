@@ -94,14 +94,14 @@ export const RemoveFromSeenHistoryButton: FunctionComponent<{
     seenId !== undefined
       ? 1
       : episode
-      ? mediaItem.seenHistory?.filter(
-          (entry) => entry.episodeId === episode?.id
-        ).length
-      : season
-      ? mediaItem.seenHistory?.filter((entry) =>
-          seasonEpisodesIdSet.has(entry.episodeId)
-        ).length
-      : mediaItem.seenHistory?.length;
+        ? mediaItem.seenHistory?.filter(
+            (entry) => entry.episodeId === episode?.id
+          ).length
+        : season
+          ? mediaItem.seenHistory?.filter((entry) =>
+              seasonEpisodesIdSet.has(entry.episodeId)
+            ).length
+          : mediaItem.seenHistory?.length;
 
   return (
     <div

@@ -68,7 +68,8 @@ const searchResult = [
     audibleId: 'B017V4IM1G',
     authors: ['J.K. Rowling'],
     narrators: ['Jim Dale'],
-    externalPosterUrl: 'https://m.media-amazon.com/images/I/91tDBrO2u9L._SL2400_.jpg',
+    externalPosterUrl:
+      'https://m.media-amazon.com/images/I/91tDBrO2u9L._SL2400_.jpg',
     language: 'english',
     releaseDate: '2015-11-20',
     runtime: 498,
@@ -84,7 +85,8 @@ const searchResult = [
     audibleId: 'B017V4NUPO',
     authors: ['J.K. Rowling'],
     narrators: ['Jim Dale'],
-    externalPosterUrl: 'https://m.media-amazon.com/images/I/91wE69EbTKL._SL2400_.jpg',
+    externalPosterUrl:
+      'https://m.media-amazon.com/images/I/91wE69EbTKL._SL2400_.jpg',
     language: 'english',
     releaseDate: '2015-11-20',
     runtime: 1237,
@@ -100,7 +102,8 @@ const searchResult = [
     audibleId: 'B017V4JA2Q',
     authors: ['J.K. Rowling'],
     narrators: ['Jim Dale'],
-    externalPosterUrl: 'https://m.media-amazon.com/images/I/91wkoe9lV4L._SL2400_.jpg',
+    externalPosterUrl:
+      'https://m.media-amazon.com/images/I/91wkoe9lV4L._SL2400_.jpg',
     language: 'english',
     releaseDate: '2015-11-20',
     runtime: 709,
@@ -116,7 +119,8 @@ const searchResult = [
     audibleId: 'B017V4NMX4',
     authors: ['J.K. Rowling'],
     narrators: ['Jim Dale'],
-    externalPosterUrl: 'https://m.media-amazon.com/images/I/91lexie8rNL._SL2400_.jpg',
+    externalPosterUrl:
+      'https://m.media-amazon.com/images/I/91lexie8rNL._SL2400_.jpg',
     language: 'english',
     releaseDate: '2015-11-20',
     runtime: 1589,
@@ -134,7 +138,8 @@ const detailsResult = {
   audibleId: 'B017V4IM1G',
   authors: ['J.K. Rowling'],
   narrators: ['Jim Dale'],
-  externalPosterUrl: 'https://m.media-amazon.com/images/I/91tDBrO2u9L._SL2400_.jpg',
+  externalPosterUrl:
+    'https://m.media-amazon.com/images/I/91tDBrO2u9L._SL2400_.jpg',
   language: 'english',
   releaseDate: '2015-11-20',
   runtime: 498,

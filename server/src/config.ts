@@ -26,9 +26,7 @@ export class Config {
   static readonly MIGRATIONS_DIRECTORY = resolve(__dirname, 'migrations');
 
   static readonly NODE_ENV = process.env.NODE_ENV as
-    | 'development'
-    | 'production'
-    | 'test';
+    'development' | 'production' | 'test';
 
   static readonly PUBLIC_PATH = join(__dirname, '../public');
 

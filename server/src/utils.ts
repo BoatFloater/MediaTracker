@@ -70,10 +70,10 @@ export const updateAsset = async (args: {
   const oldPosterId = season
     ? type === 'poster' && season.posterId
     : type === 'poster' && mediaItem && !season
-    ? mediaItem.posterId
-    : type === 'backdrop' && mediaItem && !season
-    ? mediaItem.backdropId
-    : undefined;
+      ? mediaItem.posterId
+      : type === 'backdrop' && mediaItem && !season
+        ? mediaItem.backdropId
+        : undefined;
 
   const newImageId = getImageId();
 

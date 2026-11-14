@@ -56,8 +56,8 @@ export const AddToListModal: FunctionComponent<{
           {episode
             ? `${mediaItem.title} ${formatEpisodeNumber(episode)}`
             : season
-            ? `${mediaItem.title} ${formatSeasonNumber(season)}`
-            : mediaItem.title}
+              ? `${mediaItem.title} ${formatSeasonNumber(season)}`
+              : mediaItem.title}
           &quot; to list
         </Trans>
       </div>

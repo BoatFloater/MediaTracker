@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   build:
-    concurrency: 
+    concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: true
     runs-on: ubuntu-latest
@@ -18,13 +18,13 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npm run lint
-      
+
   test:
     strategy:
       matrix:
         node: ['24', '26']
         os: [ubuntu-22.04, windows-latest]
-    concurrency: 
+    concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}-${{ matrix.os }}-${{ matrix.node }}
       cancel-in-progress: true
     runs-on: ${{ matrix.os }}

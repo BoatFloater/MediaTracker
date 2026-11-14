@@ -214,7 +214,8 @@ const TraktImportSummaryTableComponent: FunctionComponent<{
             episodes: state.importSummary?.ratings?.episodes,
           },
         },
-        ...(state.exportSummary?.lists?.map((list) => ({          key: list.listId,
+        ...(state.exportSummary?.lists?.map((list) => ({
+          key: list.listId,
           title: t`List: ${list.listName}`,
           exported: {
             movies: list?.movies,

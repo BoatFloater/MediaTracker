@@ -171,19 +171,17 @@ export class SeenController {
             .filter(TvEpisodeFilters.unwatchedEpisodes)
             .filter(TvEpisodeFilters.nonSpecialEpisodes)
             .filter(TvEpisodeFilters.releasedEpisodes)
-            .map(
-              (episode): Seen => ({
-                userId: userId,
-                mediaItemId: mediaItemId,
-                episodeId: episode.id,
-                date:
-                  lastSeenAt === 'release_date'
-                    ? parseISO(episode.releaseDate).getTime()
-                    : date?.getTime() || null,
-                duration:
-                  episode.runtime * 60 * 1000 || mediaItem.runtime * 60 * 1000,
-              })
-            )
+            .map((episode): Seen => ({
+              userId: userId,
+              mediaItemId: mediaItemId,
+              episodeId: episode.id,
+              date:
+                lastSeenAt === 'release_date'
+                  ? parseISO(episode.releaseDate).getTime()
+                  : date?.getTime() || null,
+              duration:
+                episode.runtime * 60 * 1000 || mediaItem.runtime * 60 * 1000,
+            }))
         );
       } else {
         if (mediaItem.mediaType === 'tv') {
@@ -195,20 +193,17 @@ export class SeenController {
             episodes
               .filter(TvEpisodeFilters.nonSpecialEpisodes)
               .filter(TvEpisodeFilters.releasedEpisodes)
-              .map(
-                (episode): Seen => ({
-                  userId: userId,
-                  mediaItemId: mediaItemId,
-                  episodeId: episode.id,
-                  date:
-                    lastSeenAt === 'release_date'
-                      ? parseISO(episode.releaseDate).getTime()
-                      : date?.getTime() || null,
-                  duration:
-                    episode.runtime * 60 * 1000 ||
-                    mediaItem.runtime * 60 * 1000,
-                })
-              )
+              .map((episode): Seen => ({
+                userId: userId,
+                mediaItemId: mediaItemId,
+                episodeId: episode.id,
+                date:
+                  lastSeenAt === 'release_date'
+                    ? parseISO(episode.releaseDate).getTime()
+                    : date?.getTime() || null,
+                duration:
+                  episode.runtime * 60 * 1000 || mediaItem.runtime * 60 * 1000,
+              }))
           );
         } else {
           await seenRepository.create({

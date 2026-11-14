@@ -104,8 +104,8 @@ export const useSortedList = (args: {
           listItem.episode
             ? listItem.episode.releaseDate
             : listItem.season
-            ? listItem.season.releaseDate
-            : listItem.mediaItem.releaseDate,
+              ? listItem.season.releaseDate
+              : listItem.mediaItem.releaseDate,
         stringComparator
       ),
       'recently-watched': sortFunctionFactory(
@@ -113,8 +113,8 @@ export const useSortedList = (args: {
           listItem.episode
             ? listItem.episode.lastSeenAt
             : listItem.season
-            ? listItem.season.lastSeenAt
-            : listItem.mediaItem.lastSeenAt,
+              ? listItem.season.lastSeenAt
+              : listItem.mediaItem.lastSeenAt,
         numericComparator
       ),
       'recently-aired': sortFunctionFactory(
@@ -123,10 +123,10 @@ export const useSortedList = (args: {
             listItem.episode
               ? listItem.episode.releaseDate
               : listItem.season
-              ? listItem.season.releaseDate
-              : listItem.mediaItem.mediaType === 'tv'
-              ? listItem.mediaItem.lastAiredEpisode?.releaseDate
-              : listItem.mediaItem.releaseDate
+                ? listItem.season.releaseDate
+                : listItem.mediaItem.mediaType === 'tv'
+                  ? listItem.mediaItem.lastAiredEpisode?.releaseDate
+                  : listItem.mediaItem.releaseDate
           ),
         stringComparator
       ),
@@ -136,10 +136,10 @@ export const useSortedList = (args: {
             listItem.episode
               ? listItem.episode.releaseDate
               : listItem.season
-              ? listItem.season.releaseDate
-              : listItem.mediaItem.mediaType === 'tv'
-              ? listItem.mediaItem.upcomingEpisode?.releaseDate
-              : listItem.mediaItem.releaseDate
+                ? listItem.season.releaseDate
+                : listItem.mediaItem.mediaType === 'tv'
+                  ? listItem.mediaItem.upcomingEpisode?.releaseDate
+                  : listItem.mediaItem.releaseDate
           ),
         stringComparator
       ),
@@ -148,8 +148,8 @@ export const useSortedList = (args: {
           listItem.episode
             ? listItem.episode.runtime
             : listItem.season
-            ? listItem.season.totalRuntime
-            : listItem.mediaItem.totalRuntime,
+              ? listItem.season.totalRuntime
+              : listItem.mediaItem.totalRuntime,
         numericComparator
       ),
       'my-rating': sortFunctionFactory(
@@ -157,8 +157,8 @@ export const useSortedList = (args: {
           listItem.episode
             ? listItem.episode.userRating?.rating
             : listItem.season
-            ? listItem.season.userRating?.rating
-            : listItem.mediaItem.userRating?.rating,
+              ? listItem.season.userRating?.rating
+              : listItem.mediaItem.userRating?.rating,
         numericComparator
       ),
       'recently-added': sortFunctionFactory(

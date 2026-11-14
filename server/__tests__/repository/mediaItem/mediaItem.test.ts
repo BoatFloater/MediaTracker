@@ -24,9 +24,7 @@ describe('mediaItemRepository', () => {
 
     expect(result.posterId).toBeDefined();
     expect(result.backdropId).toBeDefined();
-    result.seasons.map((season) =>
-      expect(season.posterId).toBeDefined()
-    );
+    result.seasons.map((season) => expect(season.posterId).toBeDefined());
   });
 
   test('create without id', async () => {
@@ -44,9 +42,8 @@ describe('mediaItemRepository', () => {
       id: returnedMediaItem.id,
     });
 
-    const season = await mediaItemRepository.seasonsWithEpisodes(
-      returnedMediaItem
-    );
+    const season =
+      await mediaItemRepository.seasonsWithEpisodes(returnedMediaItem);
 
     expect(result).toMatchObject(mediaItem);
     expect(result.posterId).toBeDefined();
@@ -77,9 +74,7 @@ describe('mediaItemRepository', () => {
     expect(result).toMatchObject(mediaItem);
     expect(result.posterId).toBeDefined();
     expect(result.backdropId).toBeDefined();
-    result.seasons.map((season) =>
-      expect(season.posterId).toBeDefined()
-    );
+    result.seasons.map((season) => expect(season.posterId).toBeDefined());
   });
 
   test('update', async () => {

@@ -14,10 +14,10 @@ const useFilterTextMap = (mediaType: MediaType) => {
     onlySeenItems: isAudiobook(mediaType)
       ? t`Listened`
       : isBook(mediaType)
-      ? t`Read`
-      : isVideoGame(mediaType)
-      ? t`Played`
-      : t`Watched`,
+        ? t`Read`
+        : isVideoGame(mediaType)
+          ? t`Played`
+          : t`Watched`,
   };
 };
 

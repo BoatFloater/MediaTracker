@@ -9,13 +9,7 @@ import { GlobalConfiguration } from 'src/repository/globalSettings';
 const TMDB_API_KEY = '779734046efc1e6127485c54d3b29627';
 
 type PosterSize =
-  | 'w92'
-  | 'w154'
-  | 'w185'
-  | 'w342'
-  | 'w500'
-  | 'w780'
-  | 'original';
+  'w92' | 'w154' | 'w185' | 'w342' | 'w500' | 'w780' | 'original';
 
 const getPosterUrl = (p: string, size: PosterSize = 'original') => {
   return urljoin('https://image.tmdb.org/t/p/', size, path.basename(p));
@@ -26,8 +20,7 @@ abstract class TMDb extends MetadataProvider {
 
   protected mapItem(
     response:
-      | Partial<TMDbApi.TvDetailsResponse>
-      | Partial<TMDbApi.MovieDetailsResponse>
+      Partial<TMDbApi.TvDetailsResponse> | Partial<TMDbApi.MovieDetailsResponse>
   ): MediaItemForProvider {
     return {
       source: this.name,
@@ -296,7 +289,9 @@ export class TMDbTv extends TMDb {
         tmdbId: item.id,
         title: item.name,
         description: item.overview || null,
-        externalPosterUrl: item.poster_path ? getPosterUrl(item.poster_path) : null,
+        externalPosterUrl: item.poster_path
+          ? getPosterUrl(item.poster_path)
+          : null,
         seasonNumber: item.season_number,
         numberOfEpisodes: item.episode_count,
         releaseDate: item.air_date || null,

@@ -22,8 +22,8 @@ export const StarRating: FunctionComponent<
   const rating: number = episode
     ? episode.userRating?.rating
     : season
-    ? season.userRating?.rating
-    : mediaItem.userRating?.rating;
+      ? season.userRating?.rating
+      : mediaItem.userRating?.rating;
 
   const [hoverIndex, setHoverIndex] = useState(null);
 
@@ -80,16 +80,16 @@ const StarRatingModal: FunctionComponent<
   const rating: number = episode
     ? episode.userRating?.rating
     : season
-    ? season.userRating?.rating
-    : mediaItem.userRating?.rating;
+      ? season.userRating?.rating
+      : mediaItem.userRating?.rating;
 
   const [hoverIndex, setHoverIndex] = useState(null);
   const [review, setReview] = useState(
     (episode
       ? episode.userRating?.review
       : season
-      ? season.userRating?.review
-      : mediaItem.userRating?.review) || ''
+        ? season.userRating?.review
+        : mediaItem.userRating?.review) || ''
   );
 
   const onSetRating = async (value?: number) => {
@@ -189,14 +189,14 @@ export const BadgeRating: FunctionComponent<
   const rating: number = episode
     ? episode.userRating?.rating
     : season
-    ? season.userRating?.rating
-    : mediaItem.userRating?.rating;
+      ? season.userRating?.rating
+      : mediaItem.userRating?.rating;
 
   const seen = episode
     ? episode.seen === true
     : season
-    ? season.seen === true
-    : mediaItem.seen === true;
+      ? season.seen === true
+      : mediaItem.seen === true;
 
   const openModal2 = useOpenModalRef();
 

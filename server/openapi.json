@@ -19,9 +19,7 @@
   "paths": {
     "/api/calendar": {
       "get": {
-        "tags": [
-          "Calendar"
-        ],
+        "tags": ["Calendar"],
         "operationId": "get",
         "parameters": [
           {
@@ -65,9 +63,7 @@
     },
     "/api/configuration": {
       "patch": {
-        "tags": [
-          "Configuration"
-        ],
+        "tags": ["Configuration"],
         "operationId": "update",
         "requestBody": {
           "required": true,
@@ -129,9 +125,7 @@
         }
       },
       "get": {
-        "tags": [
-          "Configuration"
-        ],
+        "tags": ["Configuration"],
         "operationId": "get",
         "responses": {
           "200": {
@@ -179,9 +173,7 @@
                           "nullable": true
                         }
                       },
-                      "required": [
-                        "enableRegistration"
-                      ]
+                      "required": ["enableRegistration"]
                     },
                     {
                       "type": "object",
@@ -196,11 +188,7 @@
                           "type": "string"
                         }
                       },
-                      "required": [
-                        "demo",
-                        "noUsers",
-                        "version"
-                      ]
+                      "required": ["demo", "noUsers", "version"]
                     }
                   ]
                 }
@@ -212,9 +200,7 @@
     },
     "/img/{id}": {
       "get": {
-        "tags": [
-          "Img"
-        ],
+        "tags": ["Img"],
         "operationId": "GetImage",
         "parameters": [
           {
@@ -255,9 +241,7 @@
     },
     "/api/details/{mediaItemId}": {
       "get": {
-        "tags": [
-          "MediaItem"
-        ],
+        "tags": ["MediaItem"],
         "operationId": "get",
         "parameters": [
           {
@@ -285,9 +269,7 @@
     },
     "/api/details/update-metadata/{mediaItemId}": {
       "get": {
-        "tags": [
-          "MediaItem"
-        ],
+        "tags": ["MediaItem"],
         "operationId": "updateMetadata",
         "parameters": [
           {
@@ -314,9 +296,7 @@
     "/api/items/paginated": {
       "get": {
         "description": "Get items",
-        "tags": [
-          "Items"
-        ],
+        "tags": ["Items"],
         "operationId": "paginated",
         "parameters": [
           {
@@ -488,9 +468,7 @@
     "/api/items": {
       "get": {
         "description": "Get items",
-        "tags": [
-          "Items"
-        ],
+        "tags": ["Items"],
         "operationId": "get",
         "parameters": [
           {
@@ -624,9 +602,7 @@
     },
     "/api/list": {
       "put": {
-        "tags": [
-          "List"
-        ],
+        "tags": ["List"],
         "operationId": "Add list",
         "requestBody": {
           "required": true,
@@ -667,9 +643,7 @@
                     "nullable": true
                   }
                 },
-                "required": [
-                  "name"
-                ]
+                "required": ["name"]
               }
             }
           }
@@ -688,9 +662,7 @@
         }
       },
       "patch": {
-        "tags": [
-          "List"
-        ],
+        "tags": ["List"],
         "operationId": "Update list",
         "requestBody": {
           "required": true,
@@ -734,10 +706,7 @@
                     "nullable": true
                   }
                 },
-                "required": [
-                  "id",
-                  "name"
-                ]
+                "required": ["id", "name"]
               }
             }
           }
@@ -756,9 +725,7 @@
         }
       },
       "get": {
-        "tags": [
-          "List"
-        ],
+        "tags": ["List"],
         "operationId": "Get list",
         "parameters": [
           {
@@ -784,9 +751,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "List"
-        ],
+        "tags": ["List"],
         "operationId": "Delete list",
         "parameters": [
           {
@@ -814,9 +779,7 @@
     },
     "/api/list/items": {
       "get": {
-        "tags": [
-          "List"
-        ],
+        "tags": ["List"],
         "operationId": "Get List Items",
         "parameters": [
           {
@@ -844,9 +807,7 @@
     },
     "/api/list-item": {
       "put": {
-        "tags": [
-          "List Item"
-        ],
+        "tags": ["List Item"],
         "operationId": "Add",
         "parameters": [
           {
@@ -896,9 +857,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "List Item"
-        ],
+        "tags": ["List Item"],
         "operationId": "Remove item from list",
         "parameters": [
           {
@@ -950,9 +909,7 @@
     },
     "/api/lists": {
       "get": {
-        "tags": [
-          "Lists"
-        ],
+        "tags": ["Lists"],
         "operationId": "Get user's lists",
         "parameters": [
           {
@@ -1008,9 +965,7 @@
     },
     "/api/logs": {
       "get": {
-        "tags": [
-          "Logs"
-        ],
+        "tags": ["Logs"],
         "operationId": "get",
         "parameters": [
           {
@@ -1096,9 +1051,7 @@
     },
     "/api/plex": {
       "post": {
-        "tags": [
-          "Lists"
-        ],
+        "tags": ["Lists"],
         "operationId": "Plex webhook",
         "responses": {
           "200": {
@@ -1114,9 +1067,7 @@
     },
     "/api/progress": {
       "put": {
-        "tags": [
-          "Progress"
-        ],
+        "tags": ["Progress"],
         "operationId": "add",
         "parameters": [
           {
@@ -1167,11 +1118,7 @@
             "in": "query",
             "required": false,
             "schema": {
-              "enum": [
-                "paused",
-                "playing",
-                null
-              ],
+              "enum": ["paused", "playing", null],
               "type": "string",
               "nullable": true
             }
@@ -1200,9 +1147,7 @@
     },
     "/api/progress/by-external-id": {
       "put": {
-        "tags": [
-          "Progress"
-        ],
+        "tags": ["Progress"],
         "operationId": "addByExternalId",
         "requestBody": {
           "required": true,
@@ -1244,11 +1189,7 @@
                     "nullable": true
                   },
                   "action": {
-                    "enum": [
-                      "paused",
-                      "playing",
-                      null
-                    ],
+                    "enum": ["paused", "playing", null],
                     "type": "string",
                     "nullable": true
                   },
@@ -1265,10 +1206,7 @@
                     "nullable": true
                   }
                 },
-                "required": [
-                  "id",
-                  "mediaType"
-                ]
+                "required": ["id", "mediaType"]
               }
             }
           }
@@ -1287,9 +1225,7 @@
     },
     "/api/progress/{progressId}": {
       "delete": {
-        "tags": [
-          "Progress"
-        ],
+        "tags": ["Progress"],
         "operationId": "deleteById",
         "parameters": [
           {
@@ -1315,9 +1251,7 @@
     },
     "/api/rating": {
       "put": {
-        "tags": [
-          "Rating"
-        ],
+        "tags": ["Rating"],
         "operationId": "add",
         "requestBody": {
           "required": true,
@@ -1346,9 +1280,7 @@
                     "nullable": true
                   }
                 },
-                "required": [
-                  "mediaItemId"
-                ]
+                "required": ["mediaItemId"]
               }
             }
           }
@@ -1367,9 +1299,7 @@
     },
     "/api/search": {
       "get": {
-        "tags": [
-          "Search"
-        ],
+        "tags": ["Search"],
         "operationId": "search",
         "parameters": [
           {
@@ -1408,9 +1338,7 @@
     },
     "/api/seen": {
       "put": {
-        "tags": [
-          "Seen"
-        ],
+        "tags": ["Seen"],
         "operationId": "add",
         "parameters": [
           {
@@ -1494,9 +1422,7 @@
     },
     "/api/seen/by-external-id": {
       "put": {
-        "tags": [
-          "Seen"
-        ],
+        "tags": ["Seen"],
         "operationId": "addByExternalId",
         "requestBody": {
           "required": true,
@@ -1534,10 +1460,7 @@
                     "nullable": true
                   }
                 },
-                "required": [
-                  "id",
-                  "mediaType"
-                ]
+                "required": ["id", "mediaType"]
               }
             }
           }
@@ -1556,9 +1479,7 @@
     },
     "/api/seen/{seenId}": {
       "delete": {
-        "tags": [
-          "Seen"
-        ],
+        "tags": ["Seen"],
         "operationId": "deleteById",
         "parameters": [
           {
@@ -1584,9 +1505,7 @@
     },
     "/api/seen/": {
       "delete": {
-        "tags": [
-          "Seen"
-        ],
+        "tags": ["Seen"],
         "operationId": "delete",
         "parameters": [
           {
@@ -1630,9 +1549,7 @@
     },
     "/api/statistics/summary": {
       "get": {
-        "tags": [
-          "Statistics"
-        ],
+        "tags": ["Statistics"],
         "operationId": "summary",
         "responses": {
           "200": {
@@ -1651,9 +1568,7 @@
     "/api/tokens": {
       "put": {
         "description": "Add token",
-        "tags": [
-          "Token"
-        ],
+        "tags": ["Token"],
         "operationId": "add",
         "parameters": [
           {
@@ -1677,9 +1592,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "token"
-                  ]
+                  "required": ["token"]
                 }
               }
             }
@@ -1688,9 +1601,7 @@
       },
       "delete": {
         "description": "Delete token",
-        "tags": [
-          "Token"
-        ],
+        "tags": ["Token"],
         "operationId": "delete",
         "parameters": [
           {
@@ -1715,9 +1626,7 @@
       },
       "get": {
         "description": "Get all tokens",
-        "tags": [
-          "Token"
-        ],
+        "tags": ["Token"],
         "operationId": "get",
         "responses": {
           "200": {
@@ -1738,9 +1647,7 @@
     },
     "/api/user": {
       "get": {
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "operationId": "get",
         "responses": {
           "200": {
@@ -1763,9 +1670,7 @@
     },
     "/api/user/logout": {
       "get": {
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "operationId": "logout",
         "responses": {
           "200": {
@@ -1781,9 +1686,7 @@
     },
     "/api/user/login": {
       "post": {
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "operationId": "login",
         "requestBody": {
           "required": true,
@@ -1799,10 +1702,7 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "password",
-                  "username"
-                ]
+                "required": ["password", "username"]
               }
             }
           }
@@ -1821,9 +1721,7 @@
     },
     "/api/user/register": {
       "post": {
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "operationId": "register",
         "requestBody": {
           "required": true,
@@ -1842,11 +1740,7 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "confirmPassword",
-                  "password",
-                  "username"
-                ]
+                "required": ["confirmPassword", "password", "username"]
               }
             }
           }
@@ -1874,9 +1768,7 @@
     },
     "/api/user/notification-credentials": {
       "get": {
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "operationId": "getNotificationCredentials",
         "responses": {
           "200": {
@@ -1899,11 +1791,7 @@
                           "type": "string"
                         }
                       },
-                      "required": [
-                        "priority",
-                        "token",
-                        "url"
-                      ],
+                      "required": ["priority", "token", "url"],
                       "nullable": true
                     },
                     "Discord": {
@@ -1913,9 +1801,7 @@
                           "type": "string"
                         }
                       },
-                      "required": [
-                        "url"
-                      ],
+                      "required": ["url"],
                       "nullable": true
                     },
                     "Pushbullet": {
@@ -1925,9 +1811,7 @@
                           "type": "string"
                         }
                       },
-                      "required": [
-                        "token"
-                      ],
+                      "required": ["token"],
                       "nullable": true
                     },
                     "Pushover": {
@@ -1937,9 +1821,7 @@
                           "type": "string"
                         }
                       },
-                      "required": [
-                        "key"
-                      ],
+                      "required": ["key"],
                       "nullable": true
                     },
                     "Pushsafer": {
@@ -1949,9 +1831,7 @@
                           "type": "string"
                         }
                       },
-                      "required": [
-                        "key"
-                      ],
+                      "required": ["key"],
                       "nullable": true
                     },
                     "ntfy": {
@@ -1967,11 +1847,7 @@
                           "type": "string"
                         }
                       },
-                      "required": [
-                        "priority",
-                        "topic",
-                        "url"
-                      ],
+                      "required": ["priority", "topic", "url"],
                       "nullable": true
                     }
                   }
@@ -1982,9 +1858,7 @@
         }
       },
       "put": {
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "operationId": "updateNotificationCredentials",
         "requestBody": {
           "required": true,
@@ -2010,9 +1884,7 @@
     },
     "/api/user/settings": {
       "put": {
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "operationId": "update",
         "requestBody": {
           "required": true,
@@ -2089,9 +1961,7 @@
     },
     "/api/user/password": {
       "put": {
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "operationId": "updatePassword",
         "requestBody": {
           "required": true,
@@ -2107,10 +1977,7 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "currentPassword",
-                  "newPassword"
-                ]
+                "required": ["currentPassword", "newPassword"]
               }
             }
           }
@@ -2129,9 +1996,7 @@
     },
     "/api/user/{userId}": {
       "get": {
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "operationId": "getById",
         "parameters": [
           {
@@ -2158,10 +2023,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "id",
-                    "name"
-                  ],
+                  "required": ["id", "name"],
                   "nullable": true
                 }
               }
@@ -2172,9 +2034,7 @@
     },
     "/api/watchlist": {
       "put": {
-        "tags": [
-          "Watchlist"
-        ],
+        "tags": ["Watchlist"],
         "operationId": "add",
         "parameters": [
           {
@@ -2216,9 +2076,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "Watchlist"
-        ],
+        "tags": ["Watchlist"],
         "operationId": "delete",
         "parameters": [
           {
@@ -2262,9 +2120,7 @@
     },
     "/api/import-goodreads": {
       "post": {
-        "tags": [
-          "GoodreadsImport"
-        ],
+        "tags": ["GoodreadsImport"],
         "operationId": "import",
         "requestBody": {
           "required": true,
@@ -2277,9 +2133,7 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "url"
-                ]
+                "required": ["url"]
               }
             }
           }
@@ -2300,9 +2154,7 @@
     },
     "/api/import-trakttv/state": {
       "get": {
-        "tags": [
-          "TraktTvImport"
-        ],
+        "tags": ["TraktTvImport"],
         "operationId": "state",
         "responses": {
           "200": {
@@ -2348,9 +2200,7 @@
                       "nullable": true
                     }
                   },
-                  "required": [
-                    "state"
-                  ]
+                  "required": ["state"]
                 }
               }
             }
@@ -2360,9 +2210,7 @@
     },
     "/api/import-trakttv/state-stream": {
       "get": {
-        "tags": [
-          "TraktTvImport"
-        ],
+        "tags": ["TraktTvImport"],
         "operationId": "state-stream",
         "responses": {
           "200": {
@@ -2408,9 +2256,7 @@
                       "nullable": true
                     }
                   },
-                  "required": [
-                    "state"
-                  ]
+                  "required": ["state"]
                 }
               }
             }
@@ -2420,9 +2266,7 @@
     },
     "/api/import-trakttv/device-token": {
       "get": {
-        "tags": [
-          "TraktTvImport"
-        ],
+        "tags": ["TraktTvImport"],
         "operationId": "deviceToken",
         "responses": {
           "200": {
@@ -2439,10 +2283,7 @@
                       "type": "string"
                     }
                   },
-                  "required": [
-                    "userCode",
-                    "verificationUrl"
-                  ]
+                  "required": ["userCode", "verificationUrl"]
                 }
               }
             }
@@ -2452,9 +2293,7 @@
     },
     "/api/import-trakttv/start-over": {
       "get": {
-        "tags": [
-          "TraktTvImport"
-        ],
+        "tags": ["TraktTvImport"],
         "operationId": "startOver",
         "responses": {
           "200": {
@@ -2511,12 +2350,7 @@
                   "nullable": true
                 }
               },
-              "required": [
-                "id",
-                "mediaType",
-                "releaseDate",
-                "title"
-              ]
+              "required": ["id", "mediaType", "releaseDate", "title"]
             },
             "episode": {
               "type": "object",
@@ -2554,21 +2388,11 @@
               ]
             }
           },
-          "required": [
-            "episode",
-            "mediaItem",
-            "releaseDate"
-          ]
+          "required": ["episode", "mediaItem", "releaseDate"]
         }
       },
       "MediaType": {
-        "enum": [
-          "audiobook",
-          "book",
-          "movie",
-          "tv",
-          "video_game"
-        ],
+        "enum": ["audiobook", "book", "movie", "tv", "video_game"],
         "type": "string"
       },
       "TmdbLang": {
@@ -2716,37 +2540,15 @@
         "type": "string"
       },
       "AudibleCountryCode": {
-        "enum": [
-          "au",
-          "ca",
-          "de",
-          "es",
-          "fr",
-          "in",
-          "it",
-          "jp",
-          "uk",
-          "us"
-        ],
+        "enum": ["au", "ca", "de", "es", "fr", "in", "it", "jp", "uk", "us"],
         "type": "string"
       },
       "ServerLang": {
-        "enum": [
-          "da",
-          "de",
-          "en",
-          "es",
-          "fr",
-          "ko",
-          "pt"
-        ],
+        "enum": ["da", "de", "en", "es", "fr", "ko", "pt"],
         "type": "string"
       },
       "ImgSize": {
-        "enum": [
-          "original",
-          "small"
-        ],
+        "enum": ["original", "small"],
         "type": "string"
       },
       "MediaItemDetailsResponse": {
@@ -2923,11 +2725,7 @@
                 "nullable": true
               }
             },
-            "required": [
-              "mediaType",
-              "source",
-              "title"
-            ]
+            "required": ["mediaType", "source", "title"]
           },
           {
             "type": "object",
@@ -3030,9 +2828,7 @@
                 }
               }
             },
-            "required": [
-              "lists"
-            ]
+            "required": ["lists"]
           }
         ]
       },
@@ -3132,11 +2928,7 @@
             "nullable": true
           }
         },
-        "required": [
-          "isSpecialSeason",
-          "seasonNumber",
-          "title"
-        ]
+        "required": ["isSpecialSeason", "seasonNumber", "title"]
       },
       "TvEpisode": {
         "type": "object",
@@ -3266,10 +3058,7 @@
             "nullable": true
           }
         },
-        "required": [
-          "mediaItemId",
-          "userId"
-        ]
+        "required": ["mediaItemId", "userId"]
       },
       "UserRating": {
         "type": "object",
@@ -3304,11 +3093,7 @@
             "nullable": true
           }
         },
-        "required": [
-          "date",
-          "mediaItemId",
-          "userId"
-        ]
+        "required": ["date", "mediaItemId", "userId"]
       },
       "MediaItemItemsResponse": {
         "allOf": [
@@ -3477,11 +3262,7 @@
                 "nullable": true
               }
             },
-            "required": [
-              "mediaType",
-              "source",
-              "title"
-            ]
+            "required": ["mediaType", "source", "title"]
           },
           {
             "type": "object",
@@ -3649,11 +3430,7 @@
         ]
       },
       "ListPrivacy": {
-        "enum": [
-          "friends",
-          "private",
-          "public"
-        ],
+        "enum": ["friends", "private", "public"],
         "type": "string"
       },
       "ListSortBy": {
@@ -3670,10 +3447,7 @@
         "type": "string"
       },
       "ListSortOrder": {
-        "enum": [
-          "asc",
-          "desc"
-        ],
+        "enum": ["asc", "desc"],
         "type": "string"
       },
       "GetItemsRequest": {
@@ -3765,10 +3539,7 @@
         "type": "string"
       },
       "SortOrder": {
-        "enum": [
-          "asc",
-          "desc"
-        ],
+        "enum": ["asc", "desc"],
         "type": "string"
       },
       "ListDetailsResponse": {
@@ -3852,16 +3623,10 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "id",
-                  "username"
-                ]
+                "required": ["id", "username"]
               }
             },
-            "required": [
-              "totalRuntime",
-              "user"
-            ]
+            "required": ["totalRuntime", "user"]
           }
         ]
       },
@@ -3908,12 +3673,7 @@
               "nullable": true
             }
           },
-          "required": [
-            "id",
-            "listedAt",
-            "mediaItem",
-            "type"
-          ]
+          "required": ["id", "listedAt", "mediaItem", "type"]
         }
       },
       "ListsResponse": {
@@ -4003,16 +3763,10 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "id",
-                  "name"
-                ]
+                "required": ["id", "name"]
               }
             },
-            "required": [
-              "itemsCount",
-              "user"
-            ]
+            "required": ["itemsCount", "user"]
           }
         ]
       },
@@ -4065,12 +3819,7 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "id",
-                  "level",
-                  "message",
-                  "timestamp"
-                ]
+                "required": ["id", "level", "message", "timestamp"]
               },
               {
                 "type": "object"
@@ -4099,12 +3848,7 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "id",
-                  "level",
-                  "message",
-                  "timestamp"
-                ]
+                "required": ["id", "level", "message", "timestamp"]
               },
               {
                 "$ref": "#/components/schemas/HttpLogEntry"
@@ -4133,12 +3877,7 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "id",
-                  "level",
-                  "message",
-                  "timestamp"
-                ]
+                "required": ["id", "level", "message", "timestamp"]
               },
               {
                 "$ref": "#/components/schemas/ValidationErrorLogEntry"
@@ -4152,9 +3891,7 @@
         "properties": {
           "type": {
             "type": "string",
-            "enum": [
-              "http"
-            ]
+            "enum": ["http"]
           },
           "url": {
             "type": "string"
@@ -4194,9 +3931,7 @@
         "properties": {
           "type": {
             "type": "string",
-            "enum": [
-              "validationError"
-            ]
+            "enum": ["validationError"]
           },
           "message": {
             "type": "string"
@@ -4215,21 +3950,10 @@
             "type": "string"
           }
         },
-        "required": [
-          "error",
-          "message",
-          "method",
-          "type",
-          "url"
-        ]
+        "required": ["error", "message", "method", "type", "url"]
       },
       "LastSeenAt": {
-        "enum": [
-          "custom_date",
-          "now",
-          "release_date",
-          "unknown"
-        ],
+        "enum": ["custom_date", "now", "release_date", "unknown"],
         "type": "string"
       },
       "StatisticsSummaryResponse": {
@@ -4255,12 +3979,7 @@
                 "type": "number"
               }
             },
-            "required": [
-              "duration",
-              "episodes",
-              "items",
-              "plays"
-            ]
+            "required": ["duration", "episodes", "items", "plays"]
           },
           "movie": {
             "type": "object",
@@ -4282,12 +4001,7 @@
                 "type": "number"
               }
             },
-            "required": [
-              "duration",
-              "episodes",
-              "items",
-              "plays"
-            ]
+            "required": ["duration", "episodes", "items", "plays"]
           },
           "book": {
             "type": "object",
@@ -4309,12 +4023,7 @@
                 "type": "number"
               }
             },
-            "required": [
-              "duration",
-              "episodes",
-              "items",
-              "plays"
-            ]
+            "required": ["duration", "episodes", "items", "plays"]
           },
           "video_game": {
             "type": "object",
@@ -4336,12 +4045,7 @@
                 "type": "number"
               }
             },
-            "required": [
-              "duration",
-              "episodes",
-              "items",
-              "plays"
-            ]
+            "required": ["duration", "episodes", "items", "plays"]
           },
           "audiobook": {
             "type": "object",
@@ -4363,21 +4067,10 @@
                 "type": "number"
               }
             },
-            "required": [
-              "duration",
-              "episodes",
-              "items",
-              "plays"
-            ]
+            "required": ["duration", "episodes", "items", "plays"]
           }
         },
-        "required": [
-          "audiobook",
-          "book",
-          "movie",
-          "tv",
-          "video_game"
-        ]
+        "required": ["audiobook", "book", "movie", "tv", "video_game"]
       },
       "UserResponse": {
         "type": "object",
@@ -4438,10 +4131,7 @@
             "nullable": true
           }
         },
-        "required": [
-          "id",
-          "name"
-        ]
+        "required": ["id", "name"]
       },
       "RequestError": {
         "type": "object",
@@ -4451,15 +4141,10 @@
           },
           "MediaTrackerError": {
             "type": "boolean",
-            "enum": [
-              true
-            ]
+            "enum": [true]
           }
         },
-        "required": [
-          "MediaTrackerError",
-          "errorMessage"
-        ]
+        "required": ["MediaTrackerError", "errorMessage"]
       },
       "NotificationPlatformsResponseType": {
         "oneOf": [
@@ -4468,9 +4153,7 @@
             "properties": {
               "platformName": {
                 "type": "string",
-                "enum": [
-                  "gotify"
-                ]
+                "enum": ["gotify"]
               },
               "credentials": {
                 "type": "object",
@@ -4485,26 +4168,17 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "priority",
-                  "token",
-                  "url"
-                ]
+                "required": ["priority", "token", "url"]
               }
             },
-            "required": [
-              "credentials",
-              "platformName"
-            ]
+            "required": ["credentials", "platformName"]
           },
           {
             "type": "object",
             "properties": {
               "platformName": {
                 "type": "string",
-                "enum": [
-                  "Discord"
-                ]
+                "enum": ["Discord"]
               },
               "credentials": {
                 "type": "object",
@@ -4513,24 +4187,17 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "url"
-                ]
+                "required": ["url"]
               }
             },
-            "required": [
-              "credentials",
-              "platformName"
-            ]
+            "required": ["credentials", "platformName"]
           },
           {
             "type": "object",
             "properties": {
               "platformName": {
                 "type": "string",
-                "enum": [
-                  "Pushbullet"
-                ]
+                "enum": ["Pushbullet"]
               },
               "credentials": {
                 "type": "object",
@@ -4539,24 +4206,17 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "token"
-                ]
+                "required": ["token"]
               }
             },
-            "required": [
-              "credentials",
-              "platformName"
-            ]
+            "required": ["credentials", "platformName"]
           },
           {
             "type": "object",
             "properties": {
               "platformName": {
                 "type": "string",
-                "enum": [
-                  "Pushover"
-                ]
+                "enum": ["Pushover"]
               },
               "credentials": {
                 "type": "object",
@@ -4565,24 +4225,17 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "key"
-                ]
+                "required": ["key"]
               }
             },
-            "required": [
-              "credentials",
-              "platformName"
-            ]
+            "required": ["credentials", "platformName"]
           },
           {
             "type": "object",
             "properties": {
               "platformName": {
                 "type": "string",
-                "enum": [
-                  "Pushsafer"
-                ]
+                "enum": ["Pushsafer"]
               },
               "credentials": {
                 "type": "object",
@@ -4591,24 +4244,17 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "key"
-                ]
+                "required": ["key"]
               }
             },
-            "required": [
-              "credentials",
-              "platformName"
-            ]
+            "required": ["credentials", "platformName"]
           },
           {
             "type": "object",
             "properties": {
               "platformName": {
                 "type": "string",
-                "enum": [
-                  "ntfy"
-                ]
+                "enum": ["ntfy"]
               },
               "credentials": {
                 "type": "object",
@@ -4623,17 +4269,10 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "priority",
-                  "topic",
-                  "url"
-                ]
+                "required": ["priority", "topic", "url"]
               }
             },
-            "required": [
-              "credentials",
-              "platformName"
-            ]
+            "required": ["credentials", "platformName"]
           }
         ]
       },
@@ -4653,12 +4292,7 @@
             "type": "number"
           }
         },
-        "required": [
-          "currentlyReading",
-          "ratings",
-          "read",
-          "toRead"
-        ]
+        "required": ["currentlyReading", "ratings", "read", "toRead"]
       },
       "ImportState": {
         "enum": [
@@ -4691,12 +4325,7 @@
                 "type": "number"
               }
             },
-            "required": [
-              "episodes",
-              "movies",
-              "seasons",
-              "shows"
-            ]
+            "required": ["episodes", "movies", "seasons", "shows"]
           },
           "seen": {
             "type": "object",
@@ -4708,10 +4337,7 @@
                 "type": "number"
               }
             },
-            "required": [
-              "episodes",
-              "movies"
-            ]
+            "required": ["episodes", "movies"]
           },
           "ratings": {
             "type": "object",
@@ -4729,12 +4355,7 @@
                 "type": "number"
               }
             },
-            "required": [
-              "episodes",
-              "movies",
-              "seasons",
-              "shows"
-            ]
+            "required": ["episodes", "movies", "seasons", "shows"]
           },
           "lists": {
             "type": "array",
@@ -4771,12 +4392,7 @@
             }
           }
         },
-        "required": [
-          "lists",
-          "ratings",
-          "seen",
-          "watchlist"
-        ]
+        "required": ["lists", "ratings", "seen", "watchlist"]
       },
       "TraktTvImportNotImportedItems": {
         "type": "object",
@@ -4906,19 +4522,11 @@
                   "nullable": true
                 }
               },
-              "required": [
-                "listId",
-                "listName"
-              ]
+              "required": ["listId", "listName"]
             }
           }
         },
-        "required": [
-          "lists",
-          "ratings",
-          "seen",
-          "watchlist"
-        ]
+        "required": ["lists", "ratings", "seen", "watchlist"]
       },
       "TraktTvNotImportedMovie": {
         "type": "object",
@@ -4933,11 +4541,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "title",
-          "traktTvLink",
-          "year"
-        ]
+        "required": ["title", "traktTvLink", "year"]
       },
       "TraktTvNotImportedTvShow": {
         "type": "object",
@@ -4952,11 +4556,7 @@
             "type": "string"
           }
         },
-        "required": [
-          "title",
-          "traktTvLink",
-          "year"
-        ]
+        "required": ["title", "traktTvLink", "year"]
       },
       "TraktTvNotImportedSeason": {
         "type": "object",
@@ -4971,10 +4571,7 @@
                 "type": "number"
               }
             },
-            "required": [
-              "title",
-              "year"
-            ]
+            "required": ["title", "year"]
           },
           "season": {
             "type": "object",
@@ -4983,19 +4580,13 @@
                 "type": "number"
               }
             },
-            "required": [
-              "seasonNumber"
-            ]
+            "required": ["seasonNumber"]
           },
           "traktTvLink": {
             "type": "string"
           }
         },
-        "required": [
-          "season",
-          "show",
-          "traktTvLink"
-        ]
+        "required": ["season", "show", "traktTvLink"]
       },
       "TraktTvNotImportedEpisode": {
         "type": "object",
@@ -5010,10 +4601,7 @@
                 "type": "number"
               }
             },
-            "required": [
-              "title",
-              "year"
-            ]
+            "required": ["title", "year"]
           },
           "episode": {
             "type": "object",
@@ -5025,20 +4613,13 @@
                 "type": "number"
               }
             },
-            "required": [
-              "episodeNumber",
-              "seasonNumber"
-            ]
+            "required": ["episodeNumber", "seasonNumber"]
           },
           "traktTvLink": {
             "type": "string"
           }
         },
-        "required": [
-          "episode",
-          "show",
-          "traktTvLink"
-        ]
+        "required": ["episode", "show", "traktTvLink"]
       }
     }
   }

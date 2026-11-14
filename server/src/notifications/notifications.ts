@@ -37,9 +37,8 @@ export class Notifications {
       return;
     }
 
-    const credentials = await notificationPlatformsCredentialsRepository.get(
-      userId
-    );
+    const credentials =
+      await notificationPlatformsCredentialsRepository.get(userId);
 
     const platform = this.platformsByName[user.notificationPlatform];
 
@@ -54,7 +53,7 @@ export class Notifications {
   };
 
   public static sendNotification = async <
-    T extends keyof NotificationPlatformsCredentialsType
+    T extends keyof NotificationPlatformsCredentialsType,
   >(
     platformName: T,
     args: {
@@ -79,10 +78,12 @@ export class Notifications {
 }
 
 export type NotificationPlatformsCredentialsType = {
-  [K in Property<
-    NotificationPlatformsCredentialsArrayType[number],
-    'platformName'
-  >]: Property<
+  [
+    K in Property<
+      NotificationPlatformsCredentialsArrayType[number],
+      'platformName'
+    >
+  ]: Property<
     Extract<
       NotificationPlatformsCredentialsArrayType[number],
       { platformName: K }
@@ -99,20 +100,20 @@ type NotificationPlatformsCredentialsArrayType =
 
 type Property<
   T extends Record<string, unknown>,
-  Name extends keyof T
+  Name extends keyof T,
 > = T extends { [Key in Name]: infer P } ? P : never;
 
 type ToNotificationPlatformsCredentialsArrayType<
   Input extends ReadonlyArray<unknown>,
-  Result extends ReadonlyArray<unknown> = []
+  Result extends ReadonlyArray<unknown> = [],
 > = Input extends readonly []
   ? Result
   : Input extends readonly [infer First, ...infer Rest]
-  ? ToNotificationPlatformsCredentialsArrayType<
-      Rest,
-      [...Result, TransformNotificationPlatform<First>]
-    >
-  : Result;
+    ? ToNotificationPlatformsCredentialsArrayType<
+        Rest,
+        [...Result, TransformNotificationPlatform<First>]
+      >
+    : Result;
 
 type TransformNotificationPlatform<NotificationPlatform> =
   NotificationPlatform extends {
@@ -128,9 +129,9 @@ type TransformNotificationPlatform<NotificationPlatform> =
           }
         : never
       : Credentials extends ReadonlyArray<string>
-      ? {
-          platformName: PlatformName;
-          credentials: Record<Credentials[number], string>;
-        }
-      : never
+        ? {
+            platformName: PlatformName;
+            credentials: Record<Credentials[number], string>;
+          }
+        : never
     : never;

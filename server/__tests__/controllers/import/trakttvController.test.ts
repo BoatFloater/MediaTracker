@@ -54,7 +54,7 @@ describe('TraktTv import', () => {
             },
             status: 200,
           },
-        }[url])
+        })[url]
     );
   });
 
@@ -271,7 +271,7 @@ describe('TraktTv import', () => {
             status: 200,
             data: [],
           },
-        }[url])
+        })[url]
     );
 
     const getUserCodeResponse = await request(

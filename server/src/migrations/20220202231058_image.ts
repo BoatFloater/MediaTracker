@@ -77,9 +77,8 @@ export async function up(knex: Knex): Promise<void> {
     moveAsset('poster', 'media_item', mediaItem.id, posterId);
   }
 
-  const mediaItemsWithBackdrops = await knex('mediaItem').whereNotNull(
-    'backdrop'
-  );
+  const mediaItemsWithBackdrops =
+    await knex('mediaItem').whereNotNull('backdrop');
 
   for (const mediaItem of mediaItemsWithBackdrops) {
     const posterId = nanoid();

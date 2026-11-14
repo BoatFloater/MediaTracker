@@ -386,13 +386,11 @@ export class TraktTvImportController {
             .filter(traktTvMovieFilter)
             .map(movieMetadata)
             .filter(Boolean)
-            .map(
-              ({ mediaItem, item }): Seen => ({
-                userId: userId,
-                mediaItemId: mediaItem.id,
-                date: new Date(item.watched_at).getTime(),
-              })
-            );
+            .map(({ mediaItem, item }): Seen => ({
+              userId: userId,
+              mediaItemId: mediaItem.id,
+              date: new Date(item.watched_at).getTime(),
+            }));
 
           const seenEpisodes = exportedData.history
             .filter(traktTvEpisodeFilter)
@@ -400,41 +398,35 @@ export class TraktTvImportController {
             .filter(Boolean)
             .map(withEpisode)
             .filter(Boolean)
-            .map(
-              ({ mediaItem, item, episode }): Seen => ({
-                userId: userId,
-                mediaItemId: mediaItem.id,
-                date: new Date(item.watched_at).getTime(),
-                episodeId: episode.id,
-              })
-            )
+            .map(({ mediaItem, item, episode }): Seen => ({
+              userId: userId,
+              mediaItemId: mediaItem.id,
+              date: new Date(item.watched_at).getTime(),
+              episodeId: episode.id,
+            }))
             .filter(Boolean);
 
           const ratedMovies = exportedData.rating
             .filter(traktTvMovieFilter)
             .map(movieMetadata)
             .filter(Boolean)
-            .map(
-              ({ mediaItem, item }): UserRating => ({
-                userId: userId,
-                mediaItemId: mediaItem.id,
-                rating: item.rating / 2,
-                date: new Date(item.rated_at).getTime(),
-              })
-            );
+            .map(({ mediaItem, item }): UserRating => ({
+              userId: userId,
+              mediaItemId: mediaItem.id,
+              rating: item.rating / 2,
+              date: new Date(item.rated_at).getTime(),
+            }));
 
           const ratedTvShows = exportedData.rating
             .filter((item) => item.show && !item.season && !item.episode)
             .map(tvShowMetadata)
             .filter(Boolean)
-            .map(
-              ({ mediaItem, item }): UserRating => ({
-                userId: userId,
-                mediaItemId: mediaItem.id,
-                rating: item.rating / 2,
-                date: new Date(item.rated_at).getTime(),
-              })
-            );
+            .map(({ mediaItem, item }): UserRating => ({
+              userId: userId,
+              mediaItemId: mediaItem.id,
+              rating: item.rating / 2,
+              date: new Date(item.rated_at).getTime(),
+            }));
 
           const ratedSeasons = exportedData.rating
             .filter(traktTvSeasonFilter)
@@ -442,15 +434,13 @@ export class TraktTvImportController {
             .filter(Boolean)
             .map(withSeason)
             .filter(Boolean)
-            .map(
-              ({ mediaItem, item, season }): UserRating => ({
-                userId: userId,
-                mediaItemId: mediaItem.id,
-                rating: item.rating / 2,
-                date: new Date(item.rated_at).getTime(),
-                seasonId: season.id,
-              })
-            )
+            .map(({ mediaItem, item, season }): UserRating => ({
+              userId: userId,
+              mediaItemId: mediaItem.id,
+              rating: item.rating / 2,
+              date: new Date(item.rated_at).getTime(),
+              seasonId: season.id,
+            }))
             .filter(Boolean);
 
           const ratedEpisodes = exportedData.rating
@@ -459,15 +449,13 @@ export class TraktTvImportController {
             .filter(Boolean)
             .map(withEpisode)
             .filter(Boolean)
-            .map(
-              ({ mediaItem, item, episode }): UserRating => ({
-                userId: userId,
-                mediaItemId: mediaItem.id,
-                rating: item.rating / 2,
-                date: new Date(item.rated_at).getTime(),
-                episodeId: episode.id,
-              })
-            )
+            .map(({ mediaItem, item, episode }): UserRating => ({
+              userId: userId,
+              mediaItemId: mediaItem.id,
+              rating: item.rating / 2,
+              date: new Date(item.rated_at).getTime(),
+              episodeId: episode.id,
+            }))
             .filter(Boolean);
 
           for (const item of [
@@ -895,7 +883,7 @@ const withEpisode = <
       season: number;
       number: number;
     };
-  }
+  },
 >({
   mediaItem,
   item,
@@ -921,7 +909,7 @@ const withSeason = <
     season?: {
       number: number;
     };
-  }
+  },
 >({
   mediaItem,
   item,
@@ -1019,7 +1007,7 @@ const createMetadataFunctions = (
   const movieMetadata = <
     T extends {
       movie?: TraktApi.MovieResponse;
-    }
+    },
   >(
     item: T
   ) => {
@@ -1036,7 +1024,7 @@ const createMetadataFunctions = (
   const tvShowMetadata = <
     T extends {
       show?: TraktApi.ShowResponse;
-    }
+    },
   >(
     item: T
   ) => {
@@ -1061,7 +1049,7 @@ const getNotImportedItems = (
   movieMetadata: <
     T extends {
       movie?: TraktApi.MovieResponse;
-    }
+    },
   >(
     item: T
   ) => {
@@ -1071,7 +1059,7 @@ const getNotImportedItems = (
   tvShowMetadata: <
     T extends {
       show?: TraktApi.ShowResponse;
-    }
+    },
   >(
     item: T
   ) => {

@@ -107,8 +107,8 @@ export const GridItem: FunctionComponent<{
             season
               ? `#/seasons/${mediaItem.id}/${season.seasonNumber}`
               : episode
-              ? `#/episode/${mediaItem.id}/${episode.seasonNumber}/${episode.episodeNumber}`
-              : `#/details/${mediaItem.id}`
+                ? `#/episode/${mediaItem.id}/${episode.seasonNumber}/${episode.episodeNumber}`
+                : `#/details/${mediaItem.id}`
           }
         >
           {topBar && (
@@ -126,8 +126,8 @@ export const GridItem: FunctionComponent<{
                               season
                                 ? ' ' + formatSeasonNumber(season)
                                 : episode
-                                ? ' ' + formatEpisodeNumber(episode)
-                                : ''
+                                  ? ' ' + formatEpisodeNumber(episode)
+                                  : ''
                             }" from watchlist?`
                           )
                         ) {
@@ -156,25 +156,27 @@ export const GridItem: FunctionComponent<{
                     mediaItem.unseenEpisodesCount > 0 && (
                       <Item>{mediaItem.unseenEpisodesCount}</Item>
                     )}
-                  {topBar.showUnwatchedEpisodesCount && mediaItem.seen == true && (
-                    <Item>
-                      <i className="flex text-white material-icons hover:text-yellow-600">
-                        check_circle_outline
-                      </i>
-                    </Item>
-                  )}
-                </a>
-              ) : (
-                <>
-                  {topBar.showUnwatchedEpisodesCount && mediaItem.seen == true && (
-                    <div className="absolute inline-flex pointer-events-auto foo right-1 top-1">
+                  {topBar.showUnwatchedEpisodesCount &&
+                    mediaItem.seen == true && (
                       <Item>
-                        <i className="flex text-white select-none material-icons">
+                        <i className="flex text-white material-icons hover:text-yellow-600">
                           check_circle_outline
                         </i>
                       </Item>
-                    </div>
-                  )}
+                    )}
+                </a>
+              ) : (
+                <>
+                  {topBar.showUnwatchedEpisodesCount &&
+                    mediaItem.seen == true && (
+                      <div className="absolute inline-flex pointer-events-auto foo right-1 top-1">
+                        <Item>
+                          <i className="flex text-white select-none material-icons">
+                            check_circle_outline
+                          </i>
+                        </Item>
+                      </div>
+                    )}
                 </>
               )}
             </>
@@ -263,8 +265,8 @@ export const GridItem: FunctionComponent<{
                   (episode
                     ? episode.runtime || mediaItem.runtime
                     : season
-                    ? season.totalRuntime
-                    : mediaItem.totalRuntime) *
+                      ? season.totalRuntime
+                      : mediaItem.totalRuntime) *
                   60 *
                   1000
                 }

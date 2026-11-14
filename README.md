@@ -111,7 +111,7 @@ volumes:
 | ASSETS_PATH        | Directory for posters and backdrops, defaults to '$HOME/.mediatracker/img'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | LOGS_PATH          | Directory for logs, defaults to '$HOME/.mediatracker/logs'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | HOSTNAME           | IP address that the server will listen on                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| PORT               | Port that the server will listen on                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| PORT               | Port that the server will listen on                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
 ## Heroku
 
@@ -126,14 +126,14 @@ docker run -p 7481:7481 mediatracker
 
 # Features
 
--   notifications
--   calendar
--   multiple users
--   REST API
--   watchlist
--   docker image
--   import from [Trakt](https://trakt.tv)
--   import from [goodreads](https://www.goodreads.com)
+- notifications
+- calendar
+- multiple users
+- REST API
+- watchlist
+- docker image
+- import from [Trakt](https://trakt.tv)
+- import from [goodreads](https://www.goodreads.com)
 
 # Import
 
@@ -155,30 +155,29 @@ docker run -p 7481:7481 mediatracker
 
 # Notification platforms
 
--   [gotify](https://gotify.net)
--   [ntfy](https://ntfy.sh)
--   [Pushbullet](https://www.pushbullet.com)
--   [Discord](https://discord.com)
--   [Pushover](https://pushover.net)
--   [Pushsafer](https://www.pushsafer.com)
+- [gotify](https://gotify.net)
+- [ntfy](https://ntfy.sh)
+- [Pushbullet](https://www.pushbullet.com)
+- [Discord](https://discord.com)
+- [Pushover](https://pushover.net)
+- [Pushsafer](https://www.pushsafer.com)
 
 # Integrations
 
--   [Jellyfin](https://jellyfin.org/) - [Plugin](https://github.com/bonukai/jellyfin-plugin-mediatracker), minimum MediaTracker version: `0.1.0`
--   [Plex](https://www.plex.tv/) - Generate Application token in your MediaTracker instance, and add a [webhook](https://app.plex.tv/desktop/#!/settings/webhooks) in plex `[your MediaTracker url]/api/plex?token=[MediaTracker Application Token]`
--   [Kodi](https://kodi.tv/) - [Plugin](https://github.com/bonukai/script.mediatracker), minimum MediaTracker version: `0.1.0`
+- [Jellyfin](https://jellyfin.org/) - [Plugin](https://github.com/bonukai/jellyfin-plugin-mediatracker), minimum MediaTracker version: `0.1.0`
+- [Plex](https://www.plex.tv/) - Generate Application token in your MediaTracker instance, and add a [webhook](https://app.plex.tv/desktop/#!/settings/webhooks) in plex `[your MediaTracker url]/api/plex?token=[MediaTracker Application Token]`
+- [Kodi](https://kodi.tv/) - [Plugin](https://github.com/bonukai/script.mediatracker), minimum MediaTracker version: `0.1.0`
 
 # Contributors
 
--   [URBANsUNITED](https://github.com/URBANsUNITED) (German translation)
+- [URBANsUNITED](https://github.com/URBANsUNITED) (German translation)
 
 # Similar projects
 
--   [devfake/flox](https://github.com/devfake/flox)
--   [FuzzyGrim/Yamtrack](https://github.com/FuzzyGrim/Yamtrack)
--   [IgnisDa/ryot](https://github.com/IgnisDa/ryot)
--   [krateng/maloja](https://github.com/krateng/maloja)
--   [leepeuker/movary](https://github.com/leepeuker/movary)
--   [MaarifaMaarifa/series-troxide](https://github.com/MaarifaMaarifa/series-troxide)
--   [sbondCo/Watcharr](https://github.com/sbondCo/Watcharr)
-
+- [devfake/flox](https://github.com/devfake/flox)
+- [FuzzyGrim/Yamtrack](https://github.com/FuzzyGrim/Yamtrack)
+- [IgnisDa/ryot](https://github.com/IgnisDa/ryot)
+- [krateng/maloja](https://github.com/krateng/maloja)
+- [leepeuker/movary](https://github.com/leepeuker/movary)
+- [MaarifaMaarifa/series-troxide](https://github.com/MaarifaMaarifa/series-troxide)
+- [sbondCo/Watcharr](https://github.com/sbondCo/Watcharr)

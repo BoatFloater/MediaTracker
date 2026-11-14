@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   build:
-    concurrency: 
+    concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: true
     runs-on: ubuntu-22.04

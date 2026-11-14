@@ -1,18 +1,18 @@
 {
   "folders": [
     {
-      "path": "."
-    }
+      "path": ".",
+    },
   ],
   "extensions": {
     "recommendations": [
       "bradlc.vscode-tailwindcss",
       "esbenp.prettier-vscode",
       "dbaeumer.vscode-eslint",
-      "bierner.lit-html"
-    ]
+      "bierner.lit-html",
+    ],
   },
   "settings": {
-    "editor.formatOnSave": true
-  }
+    "editor.formatOnSave": true,
+  },
 }

@@ -16,7 +16,6 @@ export const useList = (args: { listId: number }) => {
     list: data,
     isLoading,
     isError,
-    invalidateListQuery: () =>
-      queryClient.invalidateQueries({ queryKey: key }),
+    invalidateListQuery: () => queryClient.invalidateQueries({ queryKey: key }),
   };
 };

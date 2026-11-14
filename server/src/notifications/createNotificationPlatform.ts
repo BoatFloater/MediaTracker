@@ -3,7 +3,7 @@ import { FormattedNotification } from 'src/notifications/notificationFormatter';
 export const createNotificationPlatform = <
   Credentials extends ReadonlyArray<string> = [],
   PlatformName extends string = never,
-  CredentialName extends string = never
+  CredentialName extends string = never,
 >(
   args: {
     name: PlatformName;

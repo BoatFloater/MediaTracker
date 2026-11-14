@@ -13,7 +13,7 @@ jest.spyOn(Database as any, 'knex', 'get').mockImplementation(
       migrate: {
         latest: () => [2, ['migration', 'migration2']],
       },
-    } as never)
+    }) as never
 );
 
 describe('database config', () => {
@@ -66,7 +66,7 @@ describe('database config', () => {
           migrate: {
             latest: () => [0, []] as never,
           },
-        } as never)
+        }) as never
     );
 
     await Database.runMigrations(true);

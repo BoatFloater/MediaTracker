@@ -140,14 +140,15 @@ export class UsersController {
     path: '/api/user/notification-credentials';
     method: 'get';
     responseBody: {
-      [N in keyof NotificationPlatformsCredentialsType]?: NotificationPlatformsCredentialsType[N];
+      [
+        N in keyof NotificationPlatformsCredentialsType
+      ]?: NotificationPlatformsCredentialsType[N];
     };
   }>(async (req, res) => {
     const userId = Number(req.user);
 
-    const credentials = await notificationPlatformsCredentialsRepository.get(
-      userId
-    );
+    const credentials =
+      await notificationPlatformsCredentialsRepository.get(userId);
 
     res.send(credentials);
   });

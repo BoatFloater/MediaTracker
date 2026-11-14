@@ -306,8 +306,4 @@ interface Website {
 }
 
 type CoverSize =
-  | 't_cover_big'
-  | 't_thumb'
-  | 't_720p'
-  | 't_1080p'
-  | 't_original';
+  't_cover_big' | 't_thumb' | 't_720p' | 't_1080p' | 't_original';

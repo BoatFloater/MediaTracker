@@ -11,16 +11,7 @@ export type Configuration = {
 export type ServerLang = 'da' | 'de' | 'en' | 'es' | 'fr' | 'ko' | 'pt';
 
 export type AudibleCountryCode =
-  | 'au'
-  | 'ca'
-  | 'de'
-  | 'es'
-  | 'fr'
-  | 'in'
-  | 'it'
-  | 'uk'
-  | 'us'
-  | 'jp';
+  'au' | 'ca' | 'de' | 'es' | 'fr' | 'in' | 'it' | 'uk' | 'us' | 'jp';
 
 export type TmdbLang =
   | 'om'

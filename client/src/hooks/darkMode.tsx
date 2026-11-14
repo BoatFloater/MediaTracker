@@ -23,7 +23,9 @@ const getInitialDarkMode = () => {
   );
 };
 
-export const DarkModeProvider: FunctionComponent<React.PropsWithChildren> = (props) => {
+export const DarkModeProvider: FunctionComponent<React.PropsWithChildren> = (
+  props
+) => {
   const [darkMode, setDarkModeValue] = useState<boolean>(getInitialDarkMode);
 
   useEffect(() => {

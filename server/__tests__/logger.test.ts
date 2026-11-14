@@ -31,7 +31,7 @@ describe('logger', () => {
             debug: debugSpy,
             error: errorSpy,
             warn: warnSpy,
-          } as unknown as Logger)
+          }) as unknown as Logger
       );
 
     const httpLog: HttpLogEntry = {

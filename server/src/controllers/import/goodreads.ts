@@ -56,22 +56,20 @@ export const importFromGoodreadsRss = async (
   const feed: RssFeed = parser.parse(res.data);
   const items = feed?.rss?.channel?.item;
 
-  const mediaItems = items?.map(
-    (item): MediaItemBase => ({
-      title: item.title,
-      mediaType: 'book',
-      source: 'goodreads',
-      goodreadsId: item.book_id,
-      overview: item.book_description,
-      externalPosterUrl: item.book_large_image_url,
-      authors: [item.author_name],
-      releaseDate: item.book_published?.toString(),
-      numberOfPages:
-        typeof item.book?.num_pages === 'number'
-          ? item.book.num_pages
-          : undefined,
-    })
-  );
+  const mediaItems = items?.map((item): MediaItemBase => ({
+    title: item.title,
+    mediaType: 'book',
+    source: 'goodreads',
+    goodreadsId: item.book_id,
+    overview: item.book_description,
+    externalPosterUrl: item.book_large_image_url,
+    authors: [item.author_name],
+    releaseDate: item.book_published?.toString(),
+    numberOfPages:
+      typeof item.book?.num_pages === 'number'
+        ? item.book.num_pages
+        : undefined,
+  }));
 
   const addedItems =
     await mediaItemRepository.mergeSearchResultWithExistingItems(
@@ -90,36 +88,30 @@ export const importFromGoodreadsRss = async (
 
   const currentlyReading = items
     ?.filter((item) => item.user_shelves === 'currently-reading')
-    .map(
-      (item): Progress => ({
-        mediaItemId: mediaItemByGoodreadsIdMap[item.book_id].id,
-        userId: userId,
-        date: new Date(item.user_date_added).getTime(),
-        progress: 0,
-      })
-    );
+    .map((item): Progress => ({
+      mediaItemId: mediaItemByGoodreadsIdMap[item.book_id].id,
+      userId: userId,
+      date: new Date(item.user_date_added).getTime(),
+      progress: 0,
+    }));
 
   const read = items
     ?.filter((item) => item.user_shelves === '')
-    .map(
-      (item): Seen => ({
-        mediaItemId: mediaItemByGoodreadsIdMap[item.book_id].id,
-        userId: userId,
-        date: item.user_read_at ? new Date(item.user_read_at).getTime() : null,
-      })
-    );
+    .map((item): Seen => ({
+      mediaItemId: mediaItemByGoodreadsIdMap[item.book_id].id,
+      userId: userId,
+      date: item.user_read_at ? new Date(item.user_read_at).getTime() : null,
+    }));
 
   const rating = items
     ?.filter((item) => item.user_rating || item.user_review)
-    .map(
-      (item): UserRating => ({
-        mediaItemId: mediaItemByGoodreadsIdMap[item.book_id].id,
-        userId: userId,
-        rating: item.user_rating,
-        review: item.user_review,
-        date: new Date(item.user_date_added).getTime(),
-      })
-    );
+    .map((item): UserRating => ({
+      mediaItemId: mediaItemByGoodreadsIdMap[item.book_id].id,
+      userId: userId,
+      rating: item.user_rating,
+      review: item.user_review,
+      date: new Date(item.user_date_added).getTime(),
+    }));
 
   const lists = _.groupBy(
     items.filter(
