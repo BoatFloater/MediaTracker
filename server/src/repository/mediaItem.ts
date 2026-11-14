@@ -184,6 +184,19 @@ class MediaItemRepository extends repository<MediaItemBase>({
         });
 
       if (result.seasons) {
+        // External ids of episodes and seasons are unique. Episodes are matched
+        // by season and episode number, so when the metadata source reorders or
+        // renumbers them, the new tmdbId can already belong to another row of
+        // this show. Release the ids first and write the final values below,
+        // all inside this transaction. Duplicates in the new data still throw.
+        await trx('episode')
+          .where('tvShowId', mediaItem.id)
+          .update({ tmdbId: null });
+
+        await trx('season')
+          .where('tvShowId', mediaItem.id)
+          .update({ tmdbId: null });
+
         await Promise.all(
           result.seasons.map(async (season) => {
             let updated = false;
@@ -467,7 +480,7 @@ class MediaItemRepository extends repository<MediaItemBase>({
       return this.deserialize(res);
     }
   }
-    
+
   public async findByTitle(params: {
     mediaType: MediaType;
     title: string;
