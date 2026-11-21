@@ -1,4 +1,4 @@
-import { parseISO } from 'date-fns';
+import { isValid, parseISO } from 'date-fns';
 
 import { UserRating } from 'src/entity/userRating';
 import { Seen } from 'src/entity/seen';
@@ -10,7 +10,7 @@ export type TvEpisode = {
   description?: string;
   episodeNumber: number;
   seasonNumber: number;
-  releaseDate?: string;
+  releaseDate?: string | null;
   tvShowId?: number;
   seasonId?: number;
   tmdbId?: number;
@@ -72,6 +72,10 @@ export class TvEpisodeFilters {
   };
 
   public static withReleaseDateEpisodes = (episode: TvEpisode) => {
-    return episode.releaseDate !== undefined;
+    return (
+      typeof episode.releaseDate === 'string' &&
+      episode.releaseDate.trim() !== '' &&
+      isValid(parseISO(episode.releaseDate))
+    );
   };
 }

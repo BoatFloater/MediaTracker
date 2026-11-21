@@ -178,6 +178,32 @@ const mediaItems: MediaItemBaseWithSeasons[] = [
       },
     ],
   },
+  {
+    id: 8,
+    lastTimeUpdated: new Date().getTime(),
+    mediaType: 'tv',
+    source: 'user',
+    title: 'title8',
+    seasons: [
+      {
+        id: 6,
+        seasonNumber: 1,
+        numberOfEpisodes: 1,
+        title: 'Season 1',
+        isSpecialSeason: false,
+        episodes: [
+          {
+            id: 8,
+            episodeNumber: 1,
+            seasonNumber: 1,
+            title: 'Episode 1',
+            releaseDate: null,
+            isSpecialEpisode: false,
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 const user: User = {
@@ -282,5 +308,15 @@ describe('upcomingEpisode', () => {
     });
 
     expect(fetchedMediaItem.upcomingEpisode).toBeDefined();
+  });
+
+  test('details, episode without release date', async () => {
+    const fetchedMediaItem = await mediaItemRepository.details({
+      userId: 1,
+      mediaItemId: 8,
+    });
+
+    expect(fetchedMediaItem.upcomingEpisode).toBeUndefined();
+    expect(fetchedMediaItem.lastAiredEpisode).toBeUndefined();
   });
 });
